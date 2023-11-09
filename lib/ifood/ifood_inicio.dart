@@ -1078,7 +1078,8 @@ class IfoodHomePage extends StatelessWidget {
                                   iconSize: 35,
                                   icon: const Icon(Icons.search),
                                   onPressed: () {
-                                    // ...
+                                    Navigator.pushNamed(context, "/Busca");
+
                                   },
                                 ),
                                 const Text('Busca')
