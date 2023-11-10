@@ -1052,68 +1052,62 @@ class IfoodHomePage extends StatelessWidget {
           Column(
             children: [
               Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      color: Colors.white,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Column(
+                  child: Column(
+                children: [
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          color: Colors.white,
+                          child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                               children: [
-                                IconButton(
-                                  iconSize: 35,
-                                  icon: const Icon(Icons.home),
-                                  onPressed: () {
-                                    // ...
-                                  },
+                                Column(
+                                  children: [
+                                    IconButton(
+                                      iconSize: 35,
+                                      icon: const Icon(Icons.home),
+                                      onPressed: () {
+                                        Navigator.pushNamed(
+                                            context, "/HomePage");
+                                      },
+                                    ),
+                                    const Text('Home')
+                                  ],
                                 ),
-                                const Text('Home')
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                IconButton(
-                                  iconSize: 35,
-                                  icon: const Icon(Icons.search),
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, "/Busca");
-
-                                  },
+                                Column(
+                                  children: [
+                                    IconButton(
+                                      iconSize: 35,
+                                      icon: const Icon(Icons.search),
+                                      onPressed: () {
+                                        Navigator.pushNamed(context, "/Busca");
+                                      },
+                                    ),
+                                    const Text('Busca')
+                                  ],
                                 ),
-                                const Text('Busca')
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                IconButton(
-                                  iconSize: 35,
-                                  icon: const Icon(Icons.format_list_numbered),
-                                  onPressed: () {
-                                    // ...
-                                  },
+                                Column(
+                                  children: [
+                                    IconButton(
+                                      iconSize: 35,
+                                      icon: const Icon(
+                                          Icons.format_list_numbered),
+                                      onPressed: () {
+                                        // ...
+                                      },
+                                    ),
+                                    const Text('Pedidos')
+                                  ],
                                 ),
-                                const Text('Pedidos')
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                IconButton(
-                                  iconSize: 35,
-                                  icon: const Icon(Icons.person),
-                                  onPressed: () {
-                                    Navigator.pushNamed(context, "/Perfil");
-                                  },
-                                ),
-                                const Text('Perfil')
-                              ],
-                            ),
-                          ]),
+                              ]),
+                        ),
+                      ],
                     ),
-                  ],
-                ),
-              ),
+                  ),
+                ],
+              )),
             ],
           )
         ],
