@@ -1095,7 +1095,8 @@ class IfoodHomePage extends StatelessWidget {
                                       icon: const Icon(
                                           Icons.format_list_numbered),
                                       onPressed: () {
-                                        // ...
+                                        Navigator.pushNamed(context, "/Pedidos");
+
                                       },
                                     ),
                                     const Text('Pedidos')

@@ -13,7 +13,9 @@ class Busca extends StatelessWidget {
           children: [
             ListView(
               children: [
-                SizedBox(height: 10,),
+                SizedBox(
+                  height: 10,
+                ),
                 Center(
                   child: Container(
                     height: 65,
@@ -124,7 +126,7 @@ class Busca extends StatelessWidget {
                                     icon:
                                         const Icon(Icons.format_list_numbered),
                                     onPressed: () {
-                                      // ...
+                                      Navigator.pushNamed(context, "/Pedidos");
                                     },
                                   ),
                                   const Text('Pedidos')
@@ -244,7 +246,6 @@ class Busca extends StatelessWidget {
             ),
           ),
           centerTitle: true,
-          
         ),
       ),
     );

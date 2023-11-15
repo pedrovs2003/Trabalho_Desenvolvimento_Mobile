@@ -2,13 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ifood/ifood_perfil_drawer.dart';
 import 'package:flutter_application_1/ifood/ifood_busca.dart';
 
-
-// ***********
-//
-// IFOOD
-//
-// ***********
-
 class IfoodEntrada extends StatelessWidget {
   const IfoodEntrada({super.key});
 
@@ -17,6 +10,7 @@ class IfoodEntrada extends StatelessWidget {
     return Scaffold(
         body: Stack(
       children: [
+        
         Container(
           color: Colors.white,
         ),
@@ -129,6 +123,7 @@ class IfoodEntrada extends StatelessWidget {
                 ),
               ],
             ),
+            
           ],
         )
       ],
