@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ifood/ifood_inserir_pedido.dart';
 import 'package:flutter_application_1/ifood/ifood_login.dart';
 import 'package:flutter_application_1/ifood/ifood_busca.dart';
 import 'package:flutter_application_1/ifood/ifood_inicio.dart';
@@ -13,6 +14,8 @@ Map<String, WidgetBuilder> routes() {
     '/Perfil': (context) => const IfoodDrawer(),
     '/Busca': (context) => const Busca(),
     '/Pedidos': (context) => const Pedidos(),
+    '/InserirPedidos': (context) => const InserirPedido()
+
     
   };
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ifood/ifood_inserir_pedido.dart';
 
 class IfoodHomePage extends StatelessWidget {
   const IfoodHomePage({super.key});
@@ -990,10 +991,25 @@ class IfoodHomePage extends StatelessWidget {
                     height: 20,
                   ),
                   Container(
-                    color: Colors.purple,
-                    width: 490,
-                    height: 90,
-                  ),
+  width: 490,
+  height: 90,
+  child: ElevatedButton(
+    onPressed: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => InserirPedido()),
+      );
+    },
+    style: ElevatedButton.styleFrom(
+      primary: Colors.purple,
+    ),
+    child: Text(
+      'Botão para loja',
+      style: TextStyle(fontSize: 18),
+    ),
+  ),
+),
+
                   const SizedBox(
                     height: 10,
                   ),
