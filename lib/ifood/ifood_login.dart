@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ifood/ifood_perfil_drawer.dart';
-import 'package:flutter_application_1/ifood/ifood_busca.dart';
 
 class IfoodEntrada extends StatelessWidget {
   const IfoodEntrada({super.key});
