@@ -9,9 +9,18 @@ class IfoodEntrada extends StatelessWidget {
     return Scaffold(
         body: Stack(
       children: [
-        
+        SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Image.asset(
+            "assets/images/fundo.png",
+            fit: BoxFit.cover,
+          ),
+        ),
         Container(
-          color: Colors.white,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          color: Colors.white10,
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -19,14 +28,7 @@ class IfoodEntrada extends StatelessWidget {
             Column(
               children: [
                 const SizedBox(
-                  height: 200,
-                ),
-                const Text(
-                  'Ifood',
-                  style: TextStyle(
-                      fontFamily: 'Montserrat',
-                      fontSize: 50,
-                      color: Colors.red),
+                  height: 280,
                 ),
                 const SizedBox(
                   height: 200,
@@ -122,7 +124,6 @@ class IfoodEntrada extends StatelessWidget {
                 ),
               ],
             ),
-            
           ],
         )
       ],

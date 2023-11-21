@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ifood/ifood_login.dart';
+import 'package:flutter_application_1/ifood/ifood_telaEntrada.dart';
 import 'ifood_routes.dart';
 
 main() => runApp(const MyApp());
@@ -12,7 +14,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
             colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
             useMaterial3: true),
-        routes: routes());
+        //routes: routes(),
+        home: IfoodIn(),
+        );
   }
 }
 //Testando Git
