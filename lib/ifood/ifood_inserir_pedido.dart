@@ -1,5 +1,6 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/ifood/ifood_data.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -141,12 +142,16 @@ class _InserirPedidoState extends State<InserirPedido> {
                               style: TextStyle(color: Colors.red),
                             ),
                           ),
-                          const Positioned(
+                          Positioned(
                             top: 158,
                             right: 60,
-                            child: Text(
-                              'Adicionar à Sacola',
-                              style: TextStyle(color: Colors.red),
+                            child: ElevatedButton(
+                              onPressed: () {
+                                // Método chamado quando o botão é pressionado
+                                ifood_data ifoodData = new ifood_data();
+                                ifoodData.getFile();
+                              },
+                              child: Text('Clique para ftftjImprimir'),
                             ),
                           ),
                           // Ícone de seta para a direita
