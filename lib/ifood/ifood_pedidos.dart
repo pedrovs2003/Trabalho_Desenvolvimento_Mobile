@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 
 import 'ifood_data.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+class IfoodPedidos extends StatefulWidget {
+  const IfoodPedidos({super.key});
 
   @override
-  State<HomePage> createState() => Pedidos();
+  State<IfoodPedidos> createState() => Pedidos();
 }
 
-class Pedidos  extends State<HomePage> {
+class Pedidos  extends State<IfoodPedidos> {
   Pedidos({Key? key});
 
   List _listaPedidos = [];

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Busca extends StatelessWidget {
-  const Busca({Key? key});
+class IfoodBusca extends StatelessWidget {
+  const IfoodBusca({Key? key});
 
   @override
   Widget build(BuildContext context) {

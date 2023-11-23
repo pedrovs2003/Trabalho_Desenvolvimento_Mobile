@@ -15,9 +15,9 @@ Map<String, WidgetBuilder> routes() {
     '/Entrada': (context) => const IfoodEntrada(),
     '/HomePage': (context) => const IfoodHomePage(),
     '/Perfil': (context) => const IfoodDrawer(),
-    '/Busca': (context) => const Busca(),
-    '/Pedidos': (context) => const HomePage(),
-    '/InserirPedidos': (context) => const InserirPedido()
+    '/Busca': (context) => const IfoodBusca(),
+    '/Pedidos': (context) => const IfoodPedidos(),
+    '/InserirPedidos': (context) => const IfoodInserirPedido()
 
     
   };

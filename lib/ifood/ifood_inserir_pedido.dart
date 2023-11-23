@@ -20,19 +20,19 @@ class _MyAppState extends State<MyApp> {
       darkTheme: FlexThemeData.dark(scheme: FlexScheme.amber),
       themeMode: ThemeMode.dark,
       //themeMode: ThemeMode.light,
-      home: InserirPedido(),
+      home: IfoodInserirPedido(),
     );
   }
 }
 
-class InserirPedido extends StatefulWidget {
-  const InserirPedido({super.key});
+class IfoodInserirPedido extends StatefulWidget {
+  const IfoodInserirPedido({super.key});
 
   @override
   _InserirPedidoState createState() => _InserirPedidoState();
 }
 
-class _InserirPedidoState extends State<InserirPedido> {
+class _InserirPedidoState extends State<IfoodInserirPedido> {
   List _listaPedidos = [];
   ifood_data db = ifood_data();
 

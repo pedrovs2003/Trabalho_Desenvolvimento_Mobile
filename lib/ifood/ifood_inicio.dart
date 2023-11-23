@@ -991,25 +991,25 @@ class IfoodHomePage extends StatelessWidget {
                     height: 20,
                   ),
                   Container(
-  width: 490,
-  height: 90,
-  child: ElevatedButton(
-    onPressed: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => InserirPedido()),
-      );
-    },
-    style: ElevatedButton.styleFrom(
-      primary: Colors.purple,
-    ),
-    child: Text(
-      'Botão para loja',
-      style: TextStyle(fontSize: 18),
-    ),
-  ),
-),
-
+                    width: 490,
+                    height: 90,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => IfoodInserirPedido()),
+                        );
+                      },
+                      style: ElevatedButton.styleFrom(
+                        primary: Colors.purple,
+                      ),
+                      child: Text(
+                        'Botão para loja',
+                        style: TextStyle(fontSize: 18),
+                      ),
+                    ),
+                  ),
                   const SizedBox(
                     height: 10,
                   ),
@@ -1111,8 +1111,8 @@ class IfoodHomePage extends StatelessWidget {
                                       icon: const Icon(
                                           Icons.format_list_numbered),
                                       onPressed: () {
-                                        Navigator.pushNamed(context, "/Pedidos");
-
+                                        Navigator.pushNamed(
+                                            context, "/Pedidos");
                                       },
                                     ),
                                     const Text('Pedidos')
