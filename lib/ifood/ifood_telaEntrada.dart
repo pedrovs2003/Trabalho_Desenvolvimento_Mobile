@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ifood/ifood_login.dart';
-import 'package:flutter_application_1/ifood/ifood_perfil_drawer.dart';
 
 class IfoodIn extends StatelessWidget {
   const IfoodIn({super.key});
