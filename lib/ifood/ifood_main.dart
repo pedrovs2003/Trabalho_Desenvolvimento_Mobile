@@ -13,8 +13,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true),
-      //routes: routes(),
-      home: IfoodInserirPedido(),
+      routes: routes(),
+      //home: IfoodInserirPedido(),
     );
   }
 }
