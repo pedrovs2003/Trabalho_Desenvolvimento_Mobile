@@ -1,0 +1,9 @@
+{
+    "NumeroPedido": 3,
+    "Nome": "Pedido 3",
+    "Valor": 30.0,
+    "Descricao": "Descrição do Pedido 3",
+    "NomeLoja": "Loja C",
+    "FotoLoja": "url_da_foto_loja_3",
+    "IconType": "icone_tipo_3"
+}

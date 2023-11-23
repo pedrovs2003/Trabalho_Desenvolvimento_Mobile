@@ -1,7 +1,38 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 
-class Pedidos extends StatelessWidget {
-  const Pedidos({Key? key});
+import 'ifood_data.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => Pedidos();
+}
+
+class Pedidos  extends State<HomePage> {
+  Pedidos({Key? key});
+
+  List _listaPedidos = [];
+  ifood_data db = ifood_data();
+  final _tarefaController = TextEditingController();
+  Map<String, dynamic>? _ultimoItemRemovido;
+  int? _posicaoUltimoItemRemovido;
+
+  @override
+  void initState() {
+    super.initState();
+
+    db.readData().then(
+      (data) {
+        setState(() {
+          _listaPedidos = json.decode(data!);
+          print(_listaPedidos);
+        });
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
