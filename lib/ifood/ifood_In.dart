@@ -1,6 +1,7 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 
+
 class IfoodIn extends StatelessWidget {
   const IfoodIn({super.key});
 
@@ -28,8 +29,8 @@ class IfoodIn extends StatelessWidget {
                     style: ElevatedButton.styleFrom(
                       elevation: 10, //sombreado ao redor do botão
                       backgroundColor: Colors.white,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
+                      padding:
+                          const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                       textStyle: const TextStyle(fontSize: 18),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(

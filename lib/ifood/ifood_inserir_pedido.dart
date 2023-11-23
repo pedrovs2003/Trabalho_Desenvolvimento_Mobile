@@ -19,7 +19,6 @@ class _MyAppState extends State<MyApp> {
       theme: FlexThemeData.light(scheme: FlexScheme.amber),
       darkTheme: FlexThemeData.dark(scheme: FlexScheme.amber),
       themeMode: ThemeMode.dark,
-      //themeMode: ThemeMode.light,
       home: IfoodInserirPedido(),
     );
   }
@@ -63,9 +62,11 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 218, 223, 227),
       appBar: AppBar(
-        title: const Text('Inserir Pedido'),
-        centerTitle: true,
-      ),
+          backgroundColor: Colors.red,
+          title: const Text('Inserir Pedido',
+              style: TextStyle(color: Colors.white)),
+          centerTitle: true,
+          iconTheme: IconThemeData(color: Colors.white)),
       body: Stack(
         children: [
           ListView(
@@ -87,6 +88,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                 ),
               ),
 
+              SeparaRetangulo(),
               /////////// Retângulo
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -136,6 +138,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                               ),
                             ),
                           ),
+
                           // Linha quase transparente abaixo do texto
                           Positioned(
                             top: 75, // Ajuste conforme necessário
@@ -204,6 +207,9 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                   ),
                 ],
               ),
+
+              SeparaRetangulo(),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -320,6 +326,9 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                   ),
                 ],
               ),
+
+              SeparaRetangulo(),
+
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -436,54 +445,96 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                   ),
                 ],
               ),
+
               Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+                  Container(
+                    margin: EdgeInsets.all(20),
+                    width: 200, // Ajuste conforme necessário
+                    height: 60, // Ajuste conforme necessário
+                    child: ElevatedButton(
+                      onPressed: () {
+                        _quantidadesAcai =
+                            _quantidadesPizzas = _quantidadesXtudao = 0;
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        padding: EdgeInsets.all(
+                            0), // Remova o padding do ElevatedButton
+                        backgroundColor: Colors.red,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Redefinir Pedido',
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
                   SizedBox(
-                    height: 10,
-                  )
-                ],
-              ),
-              Row(
-                children: [
-                  FloatingActionButton(onPressed: () {
-                    _quantidadesAcai = _quantidadesPizzas = _quantidadesXtudao = 0;
-                  }, child: Text('Redefinir Pedido (Deve ser vermelho)')),
+                    width: 10,
+                  ),
+                  Container(
+                    margin: EdgeInsets.all(20),
+                    width: 200,
+                    height: 60,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        String meuPedido = 'Meu Pedido: \n';
+                        if (_quantidadesAcai > 0) {
+                          meuPedido += "Açaí Turbinado - ${_quantidadesAcai}x";
+                        }
 
+                        if (_quantidadesPizzas > 0) {
+                          // Adicione o código necessário para pizzas
+                        }
 
-                  FloatingActionButton(onPressed: () {
-                    String meuPedido = 'Meu Pedido: \n';
-                    if (_quantidadesAcai > 0){
-                        meuPedido += "Açaí Turbinado - ${_quantidadesAcai}x";
-                    }
+                        if (_quantidadesXtudao > 0) {
+                          // Adicione o código necessário para Xtudão
+                        }
 
-                    if (_quantidadesPizzas > 0){
+                        setState(() {
+                          Map<String, dynamic> novaTarefa = {};
+                          novaTarefa['descricao'] = meuPedido;
+                          novaTarefa['ok'] = false;
+                          _listaPedidos.add(novaTarefa);
+                          db.saveData(_listaPedidos);
+                        });
 
-                    }
+                        db.readData().then(
+                          (data) {
+                            setState(() {
+                              _listaPedidos = json.decode(data!);
+                              print(_listaPedidos);
+                            });
+                          },
+                        );
 
-                    if (_quantidadesXtudao > 0){
-
-                    }
-                    
-                    setState(() {
-                      Map<String, dynamic> novaTarefa = {};
-                      novaTarefa['descricao'] = meuPedido;
-                      novaTarefa['ok'] = false;
-                      _listaPedidos.add(novaTarefa);
-                      db.saveData(_listaPedidos);
-                    });
-
-                    db.readData().then(
-                    (data) {
-                      setState(() {
-                        _listaPedidos = json.decode(data!);
-                        print(_listaPedidos);
-                      });
-                    },
-                  );
-                    
-                    
-                    _quantidadesAcai = _quantidadesPizzas = _quantidadesXtudao = 0;
-                  }, child: Text('Finalizar Pedido (Deve ser verde)')),
+                        _quantidadesAcai =
+                            _quantidadesPizzas = _quantidadesXtudao = 0;
+                      },
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8.0),
+                        ),
+                        padding: EdgeInsets.all(
+                            0), // Remova o padding do ElevatedButton
+                        backgroundColor: Colors.green,
+                      ),
+                      child: Center(
+                        child: Text(
+                          'Finalizar Pedido',
+                          style: TextStyle(color: Colors.white, fontSize: 20),
+                        ),
+                      ),
+                    ),
+                  ),
                 ],
               ),
 
@@ -663,4 +714,17 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
   //     print('Sem Tarefa preenchida');
   //   }
   // }
+}
+
+class SeparaRetangulo extends StatelessWidget {
+  const SeparaRetangulo({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 10,
+    );
+  }
 }
