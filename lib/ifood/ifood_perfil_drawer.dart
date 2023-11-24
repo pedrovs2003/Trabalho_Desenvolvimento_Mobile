@@ -12,7 +12,7 @@ class IfoodDrawer extends StatelessWidget {
           drawer: Drawer(
             child: Column(
               children: [
-                Container(
+                SizedBox(
                   height: 100,
                   child: Row(
                     children: [

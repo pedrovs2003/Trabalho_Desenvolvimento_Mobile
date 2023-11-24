@@ -31,7 +31,7 @@ class Pedidos extends State<IfoodPedidos> {
         });
       },
     );
-  }
+  } 
 
   @override
   Widget build(BuildContext context) {
@@ -161,7 +161,7 @@ class Pedidos extends State<IfoodPedidos> {
                         width: 445,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(7.0),
-                          color: Color.fromARGB(255, 232, 173, 231),
+                          color: const Color.fromARGB(255, 232, 173, 231),
                         ),
                         child: const Padding(
                           padding: EdgeInsets.only(
@@ -216,19 +216,19 @@ class Pedidos extends State<IfoodPedidos> {
                       height: 200,
                       width: 450,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: const Color.fromARGB(255, 255, 255, 255),
                         borderRadius: BorderRadius.circular(10.0),
                         boxShadow: [
                           BoxShadow(
-                            color: Color.fromARGB(255, 232, 231, 231)
+                            color: const Color.fromARGB(255, 232, 231, 231)
                                 .withOpacity(0.5),
                             spreadRadius: 5,
                             blurRadius: 7,
-                            offset: Offset(0, 3),
+                            offset: const Offset(0, 3),
                           ),
                         ],
                         border: Border.all(
-                          color: Color.fromARGB(255, 236, 237, 239),
+                          color: const Color.fromARGB(255, 236, 237, 239),
                           width: 2,
                         ),
                       ),
@@ -348,19 +348,19 @@ class Pedidos extends State<IfoodPedidos> {
                       height: 200,
                       width: 450,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: const Color.fromARGB(255, 255, 255, 255),
                         borderRadius: BorderRadius.circular(10.0),
                         boxShadow: [
                           BoxShadow(
-                            color: Color.fromARGB(255, 232, 231, 231)
+                            color: const Color.fromARGB(255, 232, 231, 231)
                                 .withOpacity(0.5),
                             spreadRadius: 5,
                             blurRadius: 7,
-                            offset: Offset(0, 3),
+                            offset: const Offset(0, 3),
                           ),
                         ],
                         border: Border.all(
-                          color: Color.fromARGB(255, 236, 237, 239),
+                          color: const Color.fromARGB(255, 236, 237, 239),
                           width: 2,
                         ),
                       ),
@@ -479,19 +479,19 @@ class Pedidos extends State<IfoodPedidos> {
                       height: 200,
                       width: 450,
                       decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 255, 255, 255),
+                        color: const Color.fromARGB(255, 255, 255, 255),
                         borderRadius: BorderRadius.circular(10.0),
                         boxShadow: [
                           BoxShadow(
-                            color: Color.fromARGB(255, 232, 231, 231)
+                            color: const Color.fromARGB(255, 232, 231, 231)
                                 .withOpacity(0.5),
                             spreadRadius: 5,
                             blurRadius: 7,
-                            offset: Offset(0, 3),
+                            offset: const Offset(0, 3),
                           ),
                         ],
                         border: Border.all(
-                          color: Color.fromARGB(255, 236, 237, 239),
+                          color: const Color.fromARGB(255, 236, 237, 239),
                           width: 2,
                         ),
                       ),

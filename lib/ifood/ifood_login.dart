@@ -28,10 +28,7 @@ class IfoodEntrada extends StatelessWidget {
             Column(
               children: [
                 const SizedBox(
-                  height: 280,
-                ),
-                const SizedBox(
-                  height: 200,
+                  height: 480,
                 ),
                 const Text(
                   'Falta pouco pra matar \nsua fome!',

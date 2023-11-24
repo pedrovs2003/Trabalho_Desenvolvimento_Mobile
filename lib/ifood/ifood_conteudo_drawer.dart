@@ -3,7 +3,7 @@
 Column IfoodConteudoDrawer() {
     return Column(
           children: [
-            Container(
+            SizedBox(
               height: 100,
               child: Row(
                 children: [

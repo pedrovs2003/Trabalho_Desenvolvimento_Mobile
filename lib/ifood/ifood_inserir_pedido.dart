@@ -3,6 +3,8 @@ import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/ifood/ifood_data.dart';
 
+import 'DadosPage.dart';
+import 'PedidoDTO.dart';
 import 'ifood_conteudo_drawer.dart';
 
 class MyApp extends StatefulWidget {
@@ -20,7 +22,7 @@ class _MyAppState extends State<MyApp> {
       theme: FlexThemeData.light(scheme: FlexScheme.amber),
       darkTheme: FlexThemeData.dark(scheme: FlexScheme.amber),
       themeMode: ThemeMode.dark,
-      home: IfoodInserirPedido(),
+      home: const IfoodInserirPedido(),
     );
   }
 }
@@ -67,7 +69,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
           title: const Text('Inserir Pedido',
               style: TextStyle(color: Colors.white)),
           centerTitle: true,
-          iconTheme: IconThemeData(color: Colors.white)),
+          iconTheme: const IconThemeData(color: Colors.white)),
       body: Stack(
         children: [
           ListView(
@@ -84,12 +86,12 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                 onChanged: (String? selecionada) {
                   //Salva opção selecionada em uma mapa no banco
                 },
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: 'Selecione uma Categoria: ',
                 ),
               ),
 
-              SeparaRetangulo(),
+              const SeparaRetangulo(),
               /////////// Retângulo
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -98,19 +100,19 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                     height: 200,
                     width: 450,
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: const Color.fromARGB(255, 255, 255, 255),
                       borderRadius: BorderRadius.circular(10.0),
                       boxShadow: [
                         BoxShadow(
-                          color: Color.fromARGB(255, 232, 231, 231)
+                          color: const Color.fromARGB(255, 232, 231, 231)
                               .withOpacity(0.5),
                           spreadRadius: 5,
                           blurRadius: 7,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                       border: Border.all(
-                        color: Color.fromARGB(255, 236, 237, 239),
+                        color: const Color.fromARGB(255, 236, 237, 239),
                         width: 2,
                       ),
                     ),
@@ -175,7 +177,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                               onPressed: () {
                                 _quantidadesXtudao++;
                               },
-                              child: Text('Adicionar Item'),
+                              child: const Text('Adicionar Item'),
                             ),
                           ),
                           // Ícone de seta para a direita
@@ -209,7 +211,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                 ],
               ),
 
-              SeparaRetangulo(),
+              const SeparaRetangulo(),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -218,19 +220,19 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                     height: 200,
                     width: 450,
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: const Color.fromARGB(255, 255, 255, 255),
                       borderRadius: BorderRadius.circular(10.0),
                       boxShadow: [
                         BoxShadow(
-                          color: Color.fromARGB(255, 232, 231, 231)
+                          color: const Color.fromARGB(255, 232, 231, 231)
                               .withOpacity(0.5),
                           spreadRadius: 5,
                           blurRadius: 7,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                       border: Border.all(
-                        color: Color.fromARGB(255, 236, 237, 239),
+                        color: const Color.fromARGB(255, 236, 237, 239),
                         width: 2,
                       ),
                     ),
@@ -294,7 +296,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                               onPressed: () {
                                 _quantidadesAcai++;
                               },
-                              child: Text('Adicionar Item'),
+                              child: const Text('Adicionar Item'),
                             ),
                           ),
                           // Ícone de seta para a direita
@@ -328,7 +330,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                 ],
               ),
 
-              SeparaRetangulo(),
+              const SeparaRetangulo(),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -337,19 +339,19 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                     height: 200,
                     width: 450,
                     decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      color: const Color.fromARGB(255, 255, 255, 255),
                       borderRadius: BorderRadius.circular(10.0),
                       boxShadow: [
                         BoxShadow(
-                          color: Color.fromARGB(255, 232, 231, 231)
+                          color: const Color.fromARGB(255, 232, 231, 231)
                               .withOpacity(0.5),
                           spreadRadius: 5,
                           blurRadius: 7,
-                          offset: Offset(0, 3),
+                          offset: const Offset(0, 3),
                         ),
                       ],
                       border: Border.all(
-                        color: Color.fromARGB(255, 236, 237, 239),
+                        color: const Color.fromARGB(255, 236, 237, 239),
                         width: 2,
                       ),
                     ),
@@ -413,7 +415,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                               onPressed: () {
                                 _quantidadesPizzas++;
                               },
-                              child: Text('Adicionar Item'),
+                              child: const Text('Adicionar Item'),
                             ),
                           ),
                           // Ícone de seta para a direita
@@ -451,7 +453,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Container(
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     width: 200, // Ajuste conforme necessário
                     height: 60, // Ajuste conforme necessário
                     child: ElevatedButton(
@@ -463,11 +465,11 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                        padding: EdgeInsets.all(
+                        padding: const EdgeInsets.all(
                             0), // Remova o padding do ElevatedButton
                         backgroundColor: Colors.red,
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           'Redefinir Pedido',
                           style: TextStyle(
@@ -478,18 +480,20 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10,
                   ),
                   Container(
-                    margin: EdgeInsets.all(20),
+                    margin: const EdgeInsets.all(20),
                     width: 200,
                     height: 60,
                     child: ElevatedButton(
                       onPressed: () {
                         String meuPedido = 'Meu Pedido: \n';
+                        double preco = 0;
                         if (_quantidadesAcai > 0) {
                           meuPedido += "Açaí Turbinado - ${_quantidadesAcai}x";
+                          preco += _quantidadesAcai * 5; // Definir Preco Correto
                         }
 
                         if (_quantidadesPizzas > 0) {
@@ -500,35 +504,46 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                           // Adicione o código necessário para Xtudão
                         }
 
-                        setState(() {
-                          Map<String, dynamic> novaTarefa = {};
-                          novaTarefa['descricao'] = meuPedido;
-                          novaTarefa['ok'] = false;
-                          _listaPedidos.add(novaTarefa);
-                          db.saveData(_listaPedidos);
-                        });
 
-                        db.readData().then(
-                          (data) {
-                            setState(() {
-                              _listaPedidos = json.decode(data!);
-                              print(_listaPedidos);
-                            });
-                          },
+                        List<PedidoDTO> pedido = [];
+                        PedidoDTO meuPedidoAtual = new PedidoDTO(meuPedido, preco);
+                        pedido.add(meuPedidoAtual);
+
+
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => DadosPage(pedido)),
                         );
 
-                        _quantidadesAcai =
-                            _quantidadesPizzas = _quantidadesXtudao = 0;
+                        // setState(() {
+                        //   Map<String, dynamic> novaTarefa = {};
+                        //   novaTarefa['descricao'] = meuPedido;
+                        //   novaTarefa['ok'] = false;
+                        //   _listaPedidos.add(novaTarefa);
+                        //   db.saveData(_listaPedidos);
+                        // });
+
+                        // db.readData().then(
+                        //   (data) {
+                        //     setState(() {
+                        //       _listaPedidos = json.decode(data!);
+                        //       print(_listaPedidos);
+                        //     });
+                        //   },
+                        // );
+
+                        _quantidadesAcai = _quantidadesPizzas = _quantidadesXtudao = 0;
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.0),
                         ),
-                        padding: EdgeInsets.all(
+                        padding: const EdgeInsets.all(
                             0), // Remova o padding do ElevatedButton
                         backgroundColor: Colors.green,
                       ),
-                      child: Center(
+                      child: const Center(
                         child: Text(
                           'Finalizar Pedido',
                           style: TextStyle(color: Colors.white, fontSize: 20),
@@ -539,7 +554,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                 ],
               ),
 
-              Row(
+              const Row(
                 children: [
                   SizedBox(
                     height: 100,
@@ -635,7 +650,7 @@ class SeparaRetangulo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return const SizedBox(
       height: 10,
     );
   }

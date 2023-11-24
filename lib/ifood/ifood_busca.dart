@@ -14,7 +14,7 @@ class IfoodBusca extends StatelessWidget {
           children: [
             ListView(
               children: [
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Center(
@@ -56,7 +56,7 @@ class IfoodBusca extends StatelessWidget {
                   height: 25,
                 ),
                 Container(
-                  padding: EdgeInsets.only(
+                  padding: const EdgeInsets.only(
                       left: 55.0), // Adiciona espaçamento à esquerda
                   child: const Text(
                     'Categorias',
@@ -83,8 +83,8 @@ class IfoodBusca extends StatelessWidget {
                     "assets/images/flutter.png"),
                 categoria(context, "assets/images/flutter.png",
                     "assets/images/flutter.png"),
-                SizedBox(
-                  height: 9,
+                const SizedBox(
+                  height: 80,
                 )
               ],
             ),
