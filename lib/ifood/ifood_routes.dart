@@ -11,7 +11,6 @@ Map<String, WidgetBuilder> routes() {
   return {
     '/': (context) => const IfoodIn(),
     '/Login': (context) => const IfoodEntrada(),
-    '/Entrada': (context) => const IfoodEntrada(),
     '/HomePage': (context) => const IfoodHomePage(),
     '/Perfil': (context) => const IfoodDrawer(),
     '/Busca': (context) => const IfoodBusca(),
