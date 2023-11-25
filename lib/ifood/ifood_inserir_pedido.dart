@@ -93,6 +93,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
 
               const SeparaRetangulo(),
               /////////// Retângulo
+              
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -211,6 +212,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                 ],
               ),
 
+              //Fim do retangulo do pedido
               const SeparaRetangulo(),
 
               Row(
