@@ -495,22 +495,24 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                         double preco = 0;
                         if (_quantidadesAcai > 0) {
                           meuPedido += "Açaí Turbinado - ${_quantidadesAcai}x";
-                          preco += _quantidadesAcai * 5; // Definir Preco Correto
+                          preco += _quantidadesAcai * 5;
                         }
 
                         if (_quantidadesPizzas > 0) {
-                          // Adicione o código necessário para pizzas
+                          meuPedido +=
+                              "\nPizza do Fabão - ${_quantidadesPizzas}x";
+                          preco += _quantidadesPizzas * 23.90;
                         }
 
                         if (_quantidadesXtudao > 0) {
-                          // Adicione o código necessário para Xtudão
+                          meuPedido += "\nX Tudão - ${_quantidadesXtudao}x";
+                          preco += _quantidadesXtudao * 17.99;
                         }
 
-
                         List<PedidoDTO> pedido = [];
-                        PedidoDTO meuPedidoAtual = new PedidoDTO(meuPedido, preco);
+                        PedidoDTO meuPedidoAtual =
+                            new PedidoDTO(meuPedido, preco);
                         pedido.add(meuPedidoAtual);
-
 
                         Navigator.push(
                           context,
@@ -535,7 +537,8 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                         //   },
                         // );
 
-                        _quantidadesAcai = _quantidadesPizzas = _quantidadesXtudao = 0;
+                        _quantidadesAcai =
+                            _quantidadesPizzas = _quantidadesXtudao = 0;
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
