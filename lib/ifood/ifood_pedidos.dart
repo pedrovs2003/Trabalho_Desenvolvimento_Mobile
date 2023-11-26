@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'ifood_DataPedido.dart';
+import 'ifood_barraNavegacaoRodape.dart';
+import 'ifood_containerHistorico.dart';
 import 'ifood_conteudo_drawer.dart';
 
 class IfoodPedidos extends StatefulWidget {
@@ -116,9 +119,11 @@ class Pedidos extends State<IfoodPedidos> {
                     ),
                   ],
                 ),
-                Container(
+                const SizedBox(
                   height: 30,
                 ),
+
+                //Container rosa informando sobre cupom
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -154,336 +159,66 @@ class Pedidos extends State<IfoodPedidos> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 25,
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 15),
-                  child: Text(
-                    'Histórico\nSex, 04 agosto 2023',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
+
                 const SizedBox(
                   height: 25,
                 ),
 
+                //Método usado para atribuir uma data ao pedido
+                DataPedido('Histórico\nSex, 04 agosto 2023'),
 
-                //pedidoRealizado(),
                 const SizedBox(
                   height: 25,
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 15),
-                  child: Text(
-                    'Dom, 04 julho 2023',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 200,
-                      width: 450,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                        borderRadius: BorderRadius.circular(10.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(255, 232, 231, 231)
-                                .withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                        border: Border.all(
-                          color: const Color.fromARGB(255, 236, 237, 239),
-                          width: 2,
-                        ),
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10.0),
-                        child: Stack(
-                          children: [
-                            // Ícone de hambúrguer
-                            const Positioned(
-                              top: 20,
-                              left: 20,
-                              child: Icon(
-                                Icons.local_pizza,
-                                size: 24,
-                                color: Colors.black,
-                              ),
-                            ),
-                            // Texto 'Galut Burguer'
-                            const Positioned(
-                              top: 20,
-                              left: 70,
-                              child: Text(
-                                'Menu Pizzaria',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              top: 75,
-                              left: 70,
-                              right: 50,
-                              child: Container(
-                                height: 1,
-                                color: Colors.grey.withOpacity(0.5),
-                              ),
-                            ),
 
-                            Positioned(
-                              top: 140,
-                              left: 70,
-                              right: 50,
-                              child: Container(
-                                height: 1,
-                                color: Colors.grey.withOpacity(0.5),
-                              ),
-                            ),
-                            const Positioned(
-                              top: 158,
-                              right: 335,
-                              child: Text(
-                                'Ajuda',
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                            const Positioned(
-                              top: 158,
-                              right: 60,
-                              child: Text(
-                                'Adicionar à Sacola',
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                            const Positioned(
-                              top: 20,
-                              right: 10,
-                              child: Icon(
-                                Icons.arrow_forward_ios_outlined,
-                                size: 24,
-                                color: Colors.black,
-                              ),
-                            ),
-                            const Positioned(
-                              top: 95,
-                              left: 70,
-                              child: Text(
-                                'Pedido concluído N° 2431\n1 Pizza Gigante',
-                                style: TextStyle(
-                                  fontSize: 11,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 15),
-                  child: Text(
-                    'Qua, 08 Março 2023',
-                    style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 25,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 200,
-                      width: 450,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                        borderRadius: BorderRadius.circular(10.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(255, 232, 231, 231)
-                                .withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                        border: Border.all(
-                          color: const Color.fromARGB(255, 236, 237, 239),
-                          width: 2,
-                        ),
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10.0),
-                        child: Stack(
-                          children: [
-                            const Positioned(
-                              top: 20,
-                              left: 20,
-                              child: Icon(
-                                Icons.icecream_sharp,
-                                size: 24,
-                                color: Colors.black,
-                              ),
-                            ),
-                            // Texto 'Galut Burguer'
-                            const Positioned(
-                              top: 20,
-                              left: 70,
-                              child: Text(
-                                'Vidal\'s Açai',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Positioned(
-                              top: 75,
-                              left: 70,
-                              right: 50,
-                              child: Container(
-                                height: 1,
-                                color: Colors.grey.withOpacity(0.5),
-                              ),
-                            ),
+                //Container com o histórico de determinado pedido
+                ContainerHistorico(Icons.fastfood, 'Galut Burguer',
+                    'Pedido concluído N° 2577\n1 Cheddar Burguer + Fritas'),
 
-                            Positioned(
-                              top: 140,
-                              left: 70,
-                              right: 50,
-                              child: Container(
-                                height: 1,
-                                color: Colors.grey.withOpacity(0.5),
-                              ),
-                            ),
-                            const Positioned(
-                              top: 158,
-                              right: 335,
-                              child: Text(
-                                'Ajuda',
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                            const Positioned(
-                              top: 158,
-                              right: 60,
-                              child: Text(
-                                'Adicionar à Sacola',
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                            const Positioned(
-                              top: 20,
-                              right: 10,
-                              child: Icon(
-                                Icons.arrow_forward_ios_outlined,
-                                size: 24,
-                                color: Colors.black,
-                              ),
-                            ),
-                            const Positioned(
-                              top: 95,
-                              left: 70,
-                              child: Text(
-                                'Pedido concluído N° 6712\nAçai 700ml',
-                                style: TextStyle(
-                                  fontSize: 11,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                const SizedBox(
+                  height: 25,
                 ),
+
+                //Método usado para atribuir uma data ao pedido
+                DataPedido('Dom, 04 julho 2023'),
+                const SizedBox(
+                  height: 25,
+                ),
+
+                //Container com o histórico de determinado pedido
+                ContainerHistorico(Icons.local_pizza, 'Menu Pizzaria',
+                    'Pedido concluído N° 2431\n1 Pizza Gigante'),
+
+                const SizedBox(
+                  height: 25,
+                ),
+
+                //Método usado para atribuir uma data ao pedido
+                DataPedido('Qua, 08 Março 2023'),
+                const SizedBox(
+                  height: 25,
+                ),
+
+                //Container com o histórico de determinado pedido
+                ContainerHistorico(Icons.icecream_sharp, 'Vidal\'s Açai',
+                    'Pedido concluído N° 6712\nAçai 700ml'),
+                const SizedBox(
+                  height: 25,
+                ),
+
                 Container(
                   height: 100,
                 )
               ],
             ),
-            Column(
-              children: [
-                Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                        color: Colors.white,
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Column(
-                                children: [
-                                  IconButton(
-                                    iconSize: 35,
-                                    icon: const Icon(Icons.home),
-                                    onPressed: () {
-                                      Navigator.pushNamed(context, "/HomePage");
-                                    },
-                                  ),
-                                  const Text('Home')
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  IconButton(
-                                    iconSize: 35,
-                                    icon: const Icon(Icons.search),
-                                    onPressed: () {
-                                      Navigator.pushNamed(context, "/Busca");
-                                    },
-                                  ),
-                                  const Text('Busca')
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  IconButton(
-                                    iconSize: 35,
-                                    icon:
-                                        const Icon(Icons.format_list_numbered),
-                                    onPressed: () {
-                                      // ...
-                                    },
-                                  ),
-                                  const Text('Pedidos')
-                                ],
-                              ),
-                            ]),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+
+            //Barra de navegação localizada no rodapé da página
+            BarraNavegacaoRodape(context),
+
           ],
         ),
+
+        //Barra de navegação no rodapé da página
         drawer: Drawer(child: IfoodConteudoDrawer()),
         appBar: AppBar(
           backgroundColor: Colors.white,
@@ -503,112 +238,5 @@ class Pedidos extends State<IfoodPedidos> {
     );
   }
 
-  Row pedidoRealizado(Icon icon, String itemNome, String ) {
-    return Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 200,
-                    width: 450,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      borderRadius: BorderRadius.circular(10.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromARGB(255, 232, 231, 231)
-                              .withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                      border: Border.all(
-                        color: const Color.fromARGB(255, 236, 237, 239),
-                        width: 2,
-                      ),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Stack(
-                        children: [
-                          const Positioned(
-                            top: 20,
-                            left: 20,
-                            child: Icon(
-                              Icons.fastfood,
-                              size: 24,
-                              color: Colors.black,
-                            ),
-                          ),
-                          const Positioned(
-                            top: 20,
-                            left: 70,
-                            child: Text(
-                              'Galut Burguer',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          Positioned(
-                            top: 75,
-                            left: 70,
-                            right: 50,
-                            child: Container(
-                              height: 1,
-                              color: Colors.grey.withOpacity(0.5),
-                            ),
-                          ),
-                          Positioned(
-                            top: 140,
-                            left: 70,
-                            right: 50,
-                            child: Container(
-                              height: 1,
-                              color: Colors.grey.withOpacity(0.5),
-                            ),
-                          ),
-                          const Positioned(
-                            top: 158,
-                            right: 335,
-                            child: Text(
-                              'Ajuda',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ),
-                          const Positioned(
-                            top: 158,
-                            right: 60,
-                            child: Text(
-                              'Adicionar à Sacola',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ),
-                          const Positioned(
-                            top: 20,
-                            right: 10,
-                            child: Icon(
-                              Icons.arrow_forward_ios_outlined,
-                              size: 24,
-                              color: Colors.black,
-                            ),
-                          ),
-                          const Positioned(
-                            top: 95,
-                            left: 70,
-                            child: Text(
-                              'Pedido concluído N° 2577\n1 Cheddar Burguer + Fritas',
-                              style: TextStyle(
-                                fontSize: 11,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              );
-  }
+  
 }

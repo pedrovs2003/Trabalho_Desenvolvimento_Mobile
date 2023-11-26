@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'ifood_barraNavegacaoRodape.dart';
+import 'ifood_categoria.dart';
 import 'ifood_conteudo_drawer.dart';
 
 class IfoodBusca extends StatelessWidget {
-  const IfoodBusca({Key? key});
+  const IfoodBusca({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -62,8 +64,7 @@ class IfoodBusca extends StatelessWidget {
                     'Categorias',
                     style: TextStyle(
                       fontSize: 25.0,
-                      fontWeight:
-                          FontWeight.bold, 
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
@@ -91,55 +92,8 @@ class IfoodBusca extends StatelessWidget {
             Column(
               children: [
                 Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Container(
-                        color: Colors.white,
-                        child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Column(
-                                children: [
-                                  IconButton(
-                                    iconSize: 35,
-                                    icon: const Icon(Icons.home),
-                                    onPressed: () {
-                                      Navigator.pushNamed(context, "/HomePage");
-                                    },
-                                  ),
-                                  const Text('Home')
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  IconButton(
-                                    iconSize: 35,
-                                    icon: const Icon(Icons.search),
-                                    onPressed: () {
-                                      Navigator.pushNamed(context, "/Busca");
-                                    },
-                                  ),
-                                  const Text('Busca')
-                                ],
-                              ),
-                              Column(
-                                children: [
-                                  IconButton(
-                                    iconSize: 35,
-                                    icon:
-                                        const Icon(Icons.format_list_numbered),
-                                    onPressed: () {
-                                      Navigator.pushNamed(context, "/Pedidos");
-                                    },
-                                  ),
-                                  const Text('Pedidos')
-                                ],
-                              ),
-                            ]),
-                      ),
-                    ],
-                  ),
+                  //Barra de navegação localizado no rodapé da página
+                  child: BarraNavegacaoRodape(context),
                 ),
               ],
             ),
@@ -163,55 +117,6 @@ class IfoodBusca extends StatelessWidget {
           centerTitle: true,
         ),
       ),
-    );
-  }
-  Row categoria(BuildContext context, String imagem1, String imagem2) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Row(
-          children: [
-            Container(
-              height: 100,
-              width: 235,
-              decoration: BoxDecoration(
-                color: Colors.yellow,
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Image.asset(
-                  imagem1,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-              width: 15,
-            ),
-            Container(
-              height: 100,
-              width: 235,
-              decoration: BoxDecoration(
-                color: Colors.yellow,
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(10.0),
-                child: Image.asset(
-                  imagem2,
-                  fit: BoxFit.cover,
-                ),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(
-          height: 115,
-          width: 15,
-        ),
-      ],
     );
   }
 }

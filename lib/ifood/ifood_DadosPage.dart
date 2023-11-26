@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'PedidoDTO.dart';
+import 'ifood_PedidoDTO.dart';
 
 class DadosPage extends StatelessWidget {
   final List<PedidoDTO> meuPedido;
-  const DadosPage(this.meuPedido);
+  const DadosPage(this.meuPedido, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -89,8 +89,8 @@ class DadosPage extends StatelessWidget {
                         height: 40,
                         width: 400,
                         decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(
-                              7.0), // Bordas arredondadas
+                          borderRadius:
+                              BorderRadius.circular(7.0), // Bordas arredondadas
                           color: Colors.red,
                         ),
                         child: const Center(

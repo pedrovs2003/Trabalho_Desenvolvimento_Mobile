@@ -1,9 +1,11 @@
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-
-import 'DadosPage.dart';
-import 'PedidoDTO.dart';
+import 'ifood_DadosPage.dart';
+import 'ifood_PedidoDTO.dart';
+import 'ifood_barraNavegacaoRodape.dart';
 import 'ifood_conteudo_drawer.dart';
+import 'ifood_itemPedido.dart';
+import 'ifood_separaRetangulo.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -70,7 +72,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
               const SeparaRetangulo(),
               itemPedido(
                 'X tudo',
-                'descrição xtudo...',
+                'Delicioso hambúrguer recheado com todos os ingredientes \nirresistíveis em um só sanduíche.',
                 Positioned(
                   top: 158,
                   right: 60,
@@ -86,7 +88,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
 
               itemPedido(
                 'Açai',
-                'descrição Açai...',
+                'Tigela generosa com açaí, frutas frescas e irresistíveis \ncomplementos saudáveis.',
                 Positioned(
                   top: 158,
                   right: 60,
@@ -102,7 +104,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
 
               itemPedido(
                 'Pizza',
-                'descrição Pizza...',
+                'Massa crocante, molho rico, queijo derretido e deliciosos \ningredientes tradicionais perfeitos.',
                 Positioned(
                   top: 158,
                   right: 60,
@@ -225,187 +227,19 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                   ),
                 ],
               ),
+              const SizedBox(
+                height: 100,
+              ),
+            ],
+          ),
 
-              const Row(
-                children: [
-                  SizedBox(
-                    height: 100,
-                  )
-                ],
-              ),
-            ],
-          ),
-          Column(
-            children: [
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Container(
-                      color: Colors.white,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: [
-                          Column(
-                            children: [
-                              IconButton(
-                                iconSize: 35,
-                                icon: const Icon(Icons.home),
-                                onPressed: () {
-                                  Navigator.pushNamed(context, "/HomePage");
-                                },
-                              ),
-                              const Text('Home')
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              IconButton(
-                                iconSize: 35,
-                                icon: const Icon(Icons.search),
-                                onPressed: () {
-                                  Navigator.pushNamed(context, "/Busca");
-                                },
-                              ),
-                              const Text('Busca')
-                            ],
-                          ),
-                          Column(
-                            children: [
-                              IconButton(
-                                iconSize: 35,
-                                icon: const Icon(Icons.format_list_numbered),
-                                onPressed: () {
-                                  // ...
-                                },
-                              ),
-                              const Text('Pedidos')
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
+          //Barra de navegação localizada no rodapé da pagina
+          BarraNavegacaoRodape(context),
         ],
       ),
       drawer: Drawer(
         child: IfoodConteudoDrawer(),
       ),
-    );
-  }
-
-  Row itemPedido(String item, String descricao, dynamic botao) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          height: 200,
-          width: 450,
-          decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 255, 255, 255),
-            borderRadius: BorderRadius.circular(10.0),
-            boxShadow: [
-              BoxShadow(
-                color:
-                    const Color.fromARGB(255, 232, 231, 231).withOpacity(0.5),
-                spreadRadius: 5,
-                blurRadius: 7,
-                offset: const Offset(0, 3),
-              ),
-            ],
-            border: Border.all(
-              color: const Color.fromARGB(255, 236, 237, 239),
-              width: 2,
-            ),
-          ),
-          child: ClipRRect(
-            borderRadius: BorderRadius.circular(10.0),
-            child: Stack(
-              children: [
-                // Ícone de hambúrguer
-                const Positioned(
-                  top: 20,
-                  left: 20,
-                  child: Icon(
-                    Icons.fastfood,
-                    size: 24,
-                    color: Colors.black,
-                  ),
-                ),
-                Positioned(
-                  top: 20,
-                  left: 70,
-                  child: Text(
-                    item,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-
-                // Linha quase transparente abaixo do texto
-                Positioned(
-                  top: 75, // Ajuste conforme necessário
-                  left: 70,
-                  right: 50,
-                  child: Container(
-                    height: 1,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
-                ),
-
-                Positioned(
-                  top: 140, // Ajuste conforme necessário
-                  left: 70,
-                  right: 50,
-                  child: Container(
-                    height: 1,
-                    color: Colors.grey.withOpacity(0.5),
-                  ),
-                ),
-                const Positioned(
-                  top: 158,
-                  right: 335,
-                  child: Text(
-                    'Ajuda',
-                    style: TextStyle(color: Colors.red),
-                  ),
-                ),
-                botao,
-                // Ícone de seta para a direita
-                const Positioned(
-                  top: 20,
-                  right: 10,
-                  child: Stack(
-                    children: [
-                      Icon(
-                        Icons.add,
-                        size: 24,
-                        color: Colors.black,
-                      ),
-                    ],
-                  ),
-                ),
-                Positioned(
-                  top: 95,
-                  left: 70,
-                  child: Text(
-                    descricao,
-                    style: const TextStyle(
-                      fontSize: 11,
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ),
-      ],
     );
   }
 
@@ -424,17 +258,4 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
   //     print('Sem Tarefa preenchida');
   //   }
   // }
-}
-
-class SeparaRetangulo extends StatelessWidget {
-  const SeparaRetangulo({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const SizedBox(
-      height: 10,
-    );
-  }
 }
