@@ -106,7 +106,7 @@ Row loja(BuildContext context, String imagemLoja, String nomeLoja,
               ),
               // Linha transparente abaixo do texto
               Positioned(
-                top: 100,
+                top: 90,
                 left: 70,
                 right: 50,
                 child: Container(
@@ -116,7 +116,7 @@ Row loja(BuildContext context, String imagemLoja, String nomeLoja,
               ),
               //Botão que acessa a loja
               Positioned(
-                top: 110,
+                top: 105,
                 left: 70,
                 right: 50,
                 child: ElevatedButton(

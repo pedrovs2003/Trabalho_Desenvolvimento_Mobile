@@ -13,7 +13,7 @@ class IfoodIn extends StatelessWidget {
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
           child: Image.asset(
-            "assets/images/ifoodEntrada.jpg",
+            "assets/images/ifoodln.jpg",
             fit: BoxFit.cover,
           ),
         ),

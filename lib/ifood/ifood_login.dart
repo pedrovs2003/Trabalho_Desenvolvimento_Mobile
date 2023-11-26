@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ifood/ifood_perfil_drawer.dart';
 
 class IfoodEntrada extends StatelessWidget {
   const IfoodEntrada({super.key});
@@ -80,11 +79,8 @@ class IfoodEntrada extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const IfoodDrawer()));
+                    Navigator.pushNamed(context, '/HomePage');
+                    
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
@@ -107,11 +103,8 @@ class IfoodEntrada extends StatelessWidget {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (BuildContext context) =>
-                                const IfoodDrawer()));
+                    Navigator.pushNamed(context, '/HomePage');
+                    
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white10,
