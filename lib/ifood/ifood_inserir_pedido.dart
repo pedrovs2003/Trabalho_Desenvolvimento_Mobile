@@ -1,7 +1,5 @@
-import 'dart:convert';
 import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/ifood/ifood_data.dart';
 
 import 'DadosPage.dart';
 import 'PedidoDTO.dart';
@@ -35,30 +33,24 @@ class IfoodInserirPedido extends StatefulWidget {
 }
 
 class _InserirPedidoState extends State<IfoodInserirPedido> {
-  List _listaPedidos = [];
-  ifood_data db = ifood_data();
+  //ifood_data db = ifood_data();
+  // @override
+  // void initState() {
+  //   super.initState();
 
-  @override
-  void initState() {
-    super.initState();
-
-    db.readData().then(
-      (data) {
-        setState(() {
-          _listaPedidos = json.decode(data!);
-        });
-      },
-    );
-  }
+  //   db.readData().then(
+  //     (data) {
+  //       setState(() {
+  //         _listaPedidos = json.decode(data!);
+  //       });
+  //     },
+  //   );
+  // }
 
   // Controlador para o campo de entrada
-  TextEditingController _opcaoController = TextEditingController();
-  int _quantidadesXtudao = 0;
+  int _quantidadesXtudo = 0;
   int _quantidadesPizzas = 0;
   int _quantidadesAcai = 0;
-
-  // Lista de opções para o DropdownButtonFormField
-  List<String> categoria = ['Nenhum', 'Hamburguer', 'Pizza', 'Açai', 'Sorvete'];
 
   @override
   Widget build(BuildContext context) {
@@ -75,381 +67,56 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
           ListView(
             scrollDirection: Axis.vertical,
             children: [
-              DropdownButtonFormField<String>(
-                value: categoria.first,
-                items: categoria.map((String opcao) {
-                  return DropdownMenuItem<String>(
-                    value: opcao,
-                    child: Text(opcao),
-                  );
-                }).toList(),
-                onChanged: (String? selecionada) {
-                  //Salva opção selecionada em uma mapa no banco
-                },
-                decoration: const InputDecoration(
-                  labelText: 'Selecione uma Categoria: ',
+              const SeparaRetangulo(),
+              itemPedido(
+                'X tudo',
+                'descrição xtudo...',
+                Positioned(
+                  top: 158,
+                  right: 60,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _quantidadesXtudo++;
+                    },
+                    child: const Text('Adicionar Item'),
+                  ),
                 ),
               ),
-
               const SeparaRetangulo(),
-              /////////// Retângulo
-              
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 200,
-                    width: 450,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      borderRadius: BorderRadius.circular(10.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromARGB(255, 232, 231, 231)
-                              .withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                      border: Border.all(
-                        color: const Color.fromARGB(255, 236, 237, 239),
-                        width: 2,
-                      ),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Stack(
-                        children: [
-                          // Ícone de hambúrguer
-                          const Positioned(
-                            top: 20,
-                            left: 20,
-                            child: Icon(
-                              Icons.fastfood,
-                              size: 24,
-                              color: Colors.black,
-                            ),
-                          ),
-                          const Positioned(
-                            top: 20,
-                            left: 70,
-                            child: Text(
-                              'X tudão',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
 
-                          // Linha quase transparente abaixo do texto
-                          Positioned(
-                            top: 75, // Ajuste conforme necessário
-                            left: 70,
-                            right: 50,
-                            child: Container(
-                              height: 1,
-                              color: Colors.grey.withOpacity(0.5),
-                            ),
-                          ),
-
-                          Positioned(
-                            top: 140, // Ajuste conforme necessário
-                            left: 70,
-                            right: 50,
-                            child: Container(
-                              height: 1,
-                              color: Colors.grey.withOpacity(0.5),
-                            ),
-                          ),
-                          const Positioned(
-                            top: 158,
-                            right: 335,
-                            child: Text(
-                              'Ajuda',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ),
-                          Positioned(
-                            top: 158,
-                            right: 60,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                _quantidadesXtudao++;
-                              },
-                              child: const Text('Adicionar Item'),
-                            ),
-                          ),
-                          // Ícone de seta para a direita
-                          const Positioned(
-                            top: 20,
-                            right: 10,
-                            child: Stack(
-                              children: [
-                                Icon(
-                                  Icons.add,
-                                  size: 24,
-                                  color: Colors.black,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Positioned(
-                            top: 95,
-                            left: 70,
-                            child: Text(
-                              'Pão, 2 Carnes Bovinas, Ovo, Frango Grelhado, Batata Palha, Bancon. \nAcompanha Fritas Médias.',
-                              style: TextStyle(
-                                fontSize: 11,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+              itemPedido(
+                'Açai',
+                'descrição Açai...',
+                Positioned(
+                  top: 158,
+                  right: 60,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _quantidadesPizzas++;
+                    },
+                    child: const Text('Adicionar Item'),
                   ),
-                ],
+                ),
+              ),
+              const SeparaRetangulo(),
+
+              itemPedido(
+                'Pizza',
+                'descrição Pizza...',
+                Positioned(
+                  top: 158,
+                  right: 60,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      _quantidadesAcai++;
+                    },
+                    child: const Text('Adicionar Item'),
+                  ),
+                ),
               ),
 
               //Fim do retangulo do pedido
               const SeparaRetangulo(),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 200,
-                    width: 450,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      borderRadius: BorderRadius.circular(10.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromARGB(255, 232, 231, 231)
-                              .withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                      border: Border.all(
-                        color: const Color.fromARGB(255, 236, 237, 239),
-                        width: 2,
-                      ),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Stack(
-                        children: [
-                          // Ícone de hambúrguer
-                          const Positioned(
-                            top: 20,
-                            left: 20,
-                            child: Icon(
-                              Icons.fastfood,
-                              size: 24,
-                              color: Colors.black,
-                            ),
-                          ),
-                          const Positioned(
-                            top: 20,
-                            left: 70,
-                            child: Text(
-                              'Açaí Turbinado',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          // Linha quase transparente abaixo do texto
-                          Positioned(
-                            top: 75, // Ajuste conforme necessário
-                            left: 70,
-                            right: 50,
-                            child: Container(
-                              height: 1,
-                              color: Colors.grey.withOpacity(0.5),
-                            ),
-                          ),
-
-                          Positioned(
-                            top: 140, // Ajuste conforme necessário
-                            left: 70,
-                            right: 50,
-                            child: Container(
-                              height: 1,
-                              color: Colors.grey.withOpacity(0.5),
-                            ),
-                          ),
-                          const Positioned(
-                            top: 158,
-                            right: 335,
-                            child: Text(
-                              'Ajuda',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ),
-                          Positioned(
-                            top: 158,
-                            right: 60,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                _quantidadesAcai++;
-                              },
-                              child: const Text('Adicionar Item'),
-                            ),
-                          ),
-                          // Ícone de seta para a direita
-                          const Positioned(
-                            top: 20,
-                            right: 10,
-                            child: Stack(
-                              children: [
-                                Icon(
-                                  Icons.add,
-                                  size: 24,
-                                  color: Colors.black,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Positioned(
-                            top: 95,
-                            left: 70,
-                            child: Text(
-                              'Açaí com Granola, Banana, Leite Condensado e Morango',
-                              style: TextStyle(
-                                fontSize: 11,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-
-              const SeparaRetangulo(),
-
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Container(
-                    height: 200,
-                    width: 450,
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(255, 255, 255, 255),
-                      borderRadius: BorderRadius.circular(10.0),
-                      boxShadow: [
-                        BoxShadow(
-                          color: const Color.fromARGB(255, 232, 231, 231)
-                              .withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: const Offset(0, 3),
-                        ),
-                      ],
-                      border: Border.all(
-                        color: const Color.fromARGB(255, 236, 237, 239),
-                        width: 2,
-                      ),
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(10.0),
-                      child: Stack(
-                        children: [
-                          // Ícone de hambúrguer
-                          const Positioned(
-                            top: 20,
-                            left: 20,
-                            child: Icon(
-                              Icons.fastfood,
-                              size: 24,
-                              color: Colors.black,
-                            ),
-                          ),
-                          const Positioned(
-                            top: 20,
-                            left: 70,
-                            child: Text(
-                              'Pizza Du Fabão',
-                              style: TextStyle(
-                                fontSize: 16,
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ),
-                          // Linha quase transparente abaixo do texto
-                          Positioned(
-                            top: 75, // Ajuste conforme necessário
-                            left: 70,
-                            right: 50,
-                            child: Container(
-                              height: 1,
-                              color: Colors.grey.withOpacity(0.5),
-                            ),
-                          ),
-
-                          Positioned(
-                            top: 140, // Ajuste conforme necessário
-                            left: 70,
-                            right: 50,
-                            child: Container(
-                              height: 1,
-                              color: Colors.grey.withOpacity(0.5),
-                            ),
-                          ),
-                          const Positioned(
-                            top: 158,
-                            right: 335,
-                            child: Text(
-                              'Ajuda',
-                              style: TextStyle(color: Colors.red),
-                            ),
-                          ),
-                          Positioned(
-                            top: 158,
-                            right: 60,
-                            child: ElevatedButton(
-                              onPressed: () {
-                                _quantidadesPizzas++;
-                              },
-                              child: const Text('Adicionar Item'),
-                            ),
-                          ),
-                          // Ícone de seta para a direita
-                          const Positioned(
-                            top: 20,
-                            right: 10,
-                            child: Stack(
-                              children: [
-                                Icon(
-                                  Icons.add,
-                                  size: 24,
-                                  color: Colors.black,
-                                ),
-                              ],
-                            ),
-                          ),
-                          const Positioned(
-                            top: 95,
-                            left: 70,
-                            child: Text(
-                              'Pizza Prime, Calabresa, Queijo e Borda Recheada',
-                              style: TextStyle(
-                                fontSize: 11,
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
 
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -461,7 +128,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                     child: ElevatedButton(
                       onPressed: () {
                         _quantidadesAcai =
-                            _quantidadesPizzas = _quantidadesXtudao = 0;
+                            _quantidadesPizzas = _quantidadesXtudo = 0;
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
@@ -504,9 +171,9 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                           preco += _quantidadesPizzas * 23.90;
                         }
 
-                        if (_quantidadesXtudao > 0) {
-                          meuPedido += "\nX Tudão - ${_quantidadesXtudao}x";
-                          preco += _quantidadesXtudao * 17.99;
+                        if (_quantidadesXtudo > 0) {
+                          meuPedido += "\nX Tudão - ${_quantidadesXtudo}x";
+                          preco += _quantidadesXtudo * 17.99;
                         }
 
                         List<PedidoDTO> pedido = [];
@@ -538,7 +205,7 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                         // );
 
                         _quantidadesAcai =
-                            _quantidadesPizzas = _quantidadesXtudao = 0;
+                            _quantidadesPizzas = _quantidadesXtudo = 0;
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
@@ -628,6 +295,117 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
       drawer: Drawer(
         child: IfoodConteudoDrawer(),
       ),
+    );
+  }
+
+  Row itemPedido(String item, String descricao, dynamic botao) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Container(
+          height: 200,
+          width: 450,
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 255, 255, 255),
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [
+              BoxShadow(
+                color:
+                    const Color.fromARGB(255, 232, 231, 231).withOpacity(0.5),
+                spreadRadius: 5,
+                blurRadius: 7,
+                offset: const Offset(0, 3),
+              ),
+            ],
+            border: Border.all(
+              color: const Color.fromARGB(255, 236, 237, 239),
+              width: 2,
+            ),
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(10.0),
+            child: Stack(
+              children: [
+                // Ícone de hambúrguer
+                const Positioned(
+                  top: 20,
+                  left: 20,
+                  child: Icon(
+                    Icons.fastfood,
+                    size: 24,
+                    color: Colors.black,
+                  ),
+                ),
+                Positioned(
+                  top: 20,
+                  left: 70,
+                  child: Text(
+                    item,
+                    style: const TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+
+                // Linha quase transparente abaixo do texto
+                Positioned(
+                  top: 75, // Ajuste conforme necessário
+                  left: 70,
+                  right: 50,
+                  child: Container(
+                    height: 1,
+                    color: Colors.grey.withOpacity(0.5),
+                  ),
+                ),
+
+                Positioned(
+                  top: 140, // Ajuste conforme necessário
+                  left: 70,
+                  right: 50,
+                  child: Container(
+                    height: 1,
+                    color: Colors.grey.withOpacity(0.5),
+                  ),
+                ),
+                const Positioned(
+                  top: 158,
+                  right: 335,
+                  child: Text(
+                    'Ajuda',
+                    style: TextStyle(color: Colors.red),
+                  ),
+                ),
+                botao,
+                // Ícone de seta para a direita
+                const Positioned(
+                  top: 20,
+                  right: 10,
+                  child: Stack(
+                    children: [
+                      Icon(
+                        Icons.add,
+                        size: 24,
+                        color: Colors.black,
+                      ),
+                    ],
+                  ),
+                ),
+                Positioned(
+                  top: 95,
+                  left: 70,
+                  child: Text(
+                    descricao,
+                    style: const TextStyle(
+                      fontSize: 11,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ],
     );
   }
 

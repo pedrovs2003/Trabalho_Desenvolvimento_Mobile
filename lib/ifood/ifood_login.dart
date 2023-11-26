@@ -58,10 +58,11 @@ class IfoodEntrada extends StatelessWidget {
                   onPressed: () {
                     Navigator.pushNamed(context, '/HomePage');
                   },
-                  icon: SizedBox(
+                  icon: Container(
+                    color:Colors.white,
                       height: 18,
                       width: 18,
-                      child: Image.asset("assets/images/logoGoogle.png", //Mudar a imagem, colocar uma que tem fundo branco
+                      child: Image.asset("assets/images/logoGoogle.png", 
                           fit: BoxFit.cover)),
                   label: const Text(
                     '          Continuar com o google         ',

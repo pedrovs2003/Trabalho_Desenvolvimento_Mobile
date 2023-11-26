@@ -1,7 +1,5 @@
-import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'ifood_conteudo_drawer.dart';
-import 'ifood_data.dart';
 
 class IfoodPedidos extends StatefulWidget {
   const IfoodPedidos({super.key});
@@ -12,26 +10,6 @@ class IfoodPedidos extends StatefulWidget {
 
 class Pedidos extends State<IfoodPedidos> {
   Pedidos({Key? key});
-
-  List _listaPedidos = [];
-  ifood_data db = ifood_data();
-  final _tarefaController = TextEditingController();
-  Map<String, dynamic>? _ultimoItemRemovido;
-  int? _posicaoUltimoItemRemovido;
-
-  @override
-  void initState() {
-    super.initState();
-
-    db.readData().then(
-      (data) {
-        setState(() {
-          _listaPedidos = json.decode(data!);
-          print(_listaPedidos);
-        });
-      },
-    );
-  } 
 
   @override
   Widget build(BuildContext context) {
@@ -49,16 +27,12 @@ class Pedidos extends State<IfoodPedidos> {
                 Container(
                   height: 25,
                 ),
-                Center(
-                  child: Container(
-                    // Adiciona espaçamento à esquerda
-                    child: const Text(
-                      'MEUS PEDIDOS',
-                      style: TextStyle(
-                        fontSize: 15, // Ajusta o tamanho da fonte
-                        fontWeight:
-                            FontWeight.bold, // Adiciona negrito se desejar
-                      ),
+                const Center(
+                  child: Text(
+                    'MEUS PEDIDOS',
+                    style: TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
                 ),
@@ -93,7 +67,6 @@ class Pedidos extends State<IfoodPedidos> {
                         borderRadius: BorderRadius.circular(10.0),
                         child: Stack(
                           children: [
-                            // Texto 'Peça de novo'
                             const Positioned(
                               top: 10,
                               left: 10,
@@ -105,7 +78,6 @@ class Pedidos extends State<IfoodPedidos> {
                                 ),
                               ),
                             ),
-                            // Texto '1 Cheddar Burguer + Fritas'
                             const Positioned(
                               top: 30,
                               left: 10,
@@ -116,18 +88,14 @@ class Pedidos extends State<IfoodPedidos> {
                                 ),
                               ),
                             ),
-                            // Container na parte inferior
                             Align(
                               alignment: Alignment.bottomCenter,
                               child: Container(
-                                margin: const EdgeInsets.only(
-                                    bottom:
-                                        15), // Ajuste a distância entre o Container vermelho e o bottom
+                                margin: const EdgeInsets.only(bottom: 15),
                                 height: 40,
                                 width: 400,
                                 decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(
-                                      7.0), // Bordas arredondadas
+                                  borderRadius: BorderRadius.circular(7.0),
                                   color: Colors.red,
                                 ),
                                 child: const Center(
@@ -151,7 +119,6 @@ class Pedidos extends State<IfoodPedidos> {
                 Container(
                   height: 30,
                 ),
-                //Container de cupom
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -164,18 +131,15 @@ class Pedidos extends State<IfoodPedidos> {
                           color: const Color.fromARGB(255, 232, 173, 231),
                         ),
                         child: const Padding(
-                          padding: EdgeInsets.only(
-                              left: 35), // Ajuste o espaço conforme necessário
+                          padding: EdgeInsets.only(left: 35),
                           child: Row(
                             children: [
                               Icon(
                                 Icons.diamond_sharp,
                                 color: Colors.purple,
                                 size: 16,
-                              ), // Você pode usar o ícone de diamante ou substituir pelo de sua escolha
-                              SizedBox(
-                                  width:
-                                      5), // Adiciona um espaço entre o ícone e o texto
+                              ),
+                              SizedBox(width: 5),
                               Text(
                                 '                 Cupons de até R\$ 10 off no Clube',
                                 style: TextStyle(
@@ -193,10 +157,8 @@ class Pedidos extends State<IfoodPedidos> {
                 const SizedBox(
                   height: 25,
                 ),
-
                 const Padding(
-                  padding: EdgeInsets.only(
-                      left: 15), // Ajuste o valor conforme necessário
+                  padding: EdgeInsets.only(left: 15),
                   child: Text(
                     'Histórico\nSex, 04 agosto 2023',
                     style: TextStyle(
@@ -209,125 +171,13 @@ class Pedidos extends State<IfoodPedidos> {
                   height: 25,
                 ),
 
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Container(
-                      height: 200,
-                      width: 450,
-                      decoration: BoxDecoration(
-                        color: const Color.fromARGB(255, 255, 255, 255),
-                        borderRadius: BorderRadius.circular(10.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: const Color.fromARGB(255, 232, 231, 231)
-                                .withOpacity(0.5),
-                            spreadRadius: 5,
-                            blurRadius: 7,
-                            offset: const Offset(0, 3),
-                          ),
-                        ],
-                        border: Border.all(
-                          color: const Color.fromARGB(255, 236, 237, 239),
-                          width: 2,
-                        ),
-                      ),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(10.0),
-                        child: Stack(
-                          children: [
-                            // Ícone de hambúrguer
-                            const Positioned(
-                              top: 20,
-                              left: 20,
-                              child: Icon(
-                                Icons.fastfood,
-                                size: 24,
-                                color: Colors.black,
-                              ),
-                            ),
-                            // Texto 'Galut Burguer'
-                            const Positioned(
-                              top: 20,
-                              left: 70,
-                              child: Text(
-                                'Galut Burguer',
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            // Linha quase transparente abaixo do texto
-                            Positioned(
-                              top: 75, // Ajuste conforme necessário
-                              left: 70,
-                              right: 50,
-                              child: Container(
-                                height: 1,
-                                color: Colors.grey.withOpacity(0.5),
-                              ),
-                            ),
 
-                            Positioned(
-                              top: 140, // Ajuste conforme necessário
-                              left: 70,
-                              right: 50,
-                              child: Container(
-                                height: 1,
-                                color: Colors.grey.withOpacity(0.5),
-                              ),
-                            ),
-                            const Positioned(
-                              top: 158,
-                              right: 335,
-                              child: Text(
-                                'Ajuda',
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                            const Positioned(
-                              top: 158,
-                              right: 60,
-                              child: Text(
-                                'Adicionar à Sacola',
-                                style: TextStyle(color: Colors.red),
-                              ),
-                            ),
-                            // Ícone de seta para a direita
-                            const Positioned(
-                              top: 20,
-                              right: 10,
-                              child: Icon(
-                                Icons.arrow_forward_ios_outlined,
-                                size: 24,
-                                color: Colors.black,
-                              ),
-                            ),
-                            const Positioned(
-                              top: 95,
-                              left: 70,
-                              child: Text(
-                                'Pedido concluído N° 2577\n1 Cheddar Burguer + Fritas',
-                                style: TextStyle(
-                                  fontSize: 11,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-
+                //pedidoRealizado(),
                 const SizedBox(
                   height: 25,
                 ),
-
                 const Padding(
-                  padding: EdgeInsets.only(
-                      left: 15), // Ajuste o valor conforme necessário
+                  padding: EdgeInsets.only(left: 15),
                   child: Text(
                     'Dom, 04 julho 2023',
                     style: TextStyle(
@@ -336,11 +186,9 @@ class Pedidos extends State<IfoodPedidos> {
                     ),
                   ),
                 ),
-
                 const SizedBox(
                   height: 25,
                 ),
-
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -390,9 +238,8 @@ class Pedidos extends State<IfoodPedidos> {
                                 ),
                               ),
                             ),
-                            // Linha quase transparente abaixo do texto
                             Positioned(
-                              top: 75, // Ajuste conforme necessário
+                              top: 75,
                               left: 70,
                               right: 50,
                               child: Container(
@@ -402,7 +249,7 @@ class Pedidos extends State<IfoodPedidos> {
                             ),
 
                             Positioned(
-                              top: 140, // Ajuste conforme necessário
+                              top: 140,
                               left: 70,
                               right: 50,
                               child: Container(
@@ -426,7 +273,6 @@ class Pedidos extends State<IfoodPedidos> {
                                 style: TextStyle(color: Colors.red),
                               ),
                             ),
-                            // Ícone de seta para a direita
                             const Positioned(
                               top: 20,
                               right: 10,
@@ -452,14 +298,11 @@ class Pedidos extends State<IfoodPedidos> {
                     ),
                   ],
                 ),
-
                 const SizedBox(
                   height: 25,
                 ),
-
                 const Padding(
-                  padding: EdgeInsets.only(
-                      left: 15), // Ajuste o valor conforme necessário
+                  padding: EdgeInsets.only(left: 15),
                   child: Text(
                     'Qua, 08 Março 2023',
                     style: TextStyle(
@@ -468,7 +311,6 @@ class Pedidos extends State<IfoodPedidos> {
                     ),
                   ),
                 ),
-
                 const SizedBox(
                   height: 25,
                 ),
@@ -499,7 +341,6 @@ class Pedidos extends State<IfoodPedidos> {
                         borderRadius: BorderRadius.circular(10.0),
                         child: Stack(
                           children: [
-                            // Ícone de hambúrguer
                             const Positioned(
                               top: 20,
                               left: 20,
@@ -521,9 +362,8 @@ class Pedidos extends State<IfoodPedidos> {
                                 ),
                               ),
                             ),
-                            // Linha quase transparente abaixo do texto
                             Positioned(
-                              top: 75, // Ajuste conforme necessário
+                              top: 75,
                               left: 70,
                               right: 50,
                               child: Container(
@@ -533,7 +373,7 @@ class Pedidos extends State<IfoodPedidos> {
                             ),
 
                             Positioned(
-                              top: 140, // Ajuste conforme necessário
+                              top: 140,
                               left: 70,
                               right: 50,
                               child: Container(
@@ -557,7 +397,6 @@ class Pedidos extends State<IfoodPedidos> {
                                 style: TextStyle(color: Colors.red),
                               ),
                             ),
-                            // Ícone de seta para a direita
                             const Positioned(
                               top: 20,
                               right: 10,
@@ -583,7 +422,6 @@ class Pedidos extends State<IfoodPedidos> {
                     ),
                   ],
                 ),
-
                 Container(
                   height: 100,
                 )
@@ -654,8 +492,8 @@ class Pedidos extends State<IfoodPedidos> {
               alignment: Alignment.center,
               child: Image.asset(
                 'assets/images/logo.png',
-                height: 100, // Defina a altura desejada
-                width: 100, // Defina a largura desejada
+                height: 100,
+                width: 100,
               ),
             ),
           ),
@@ -663,5 +501,114 @@ class Pedidos extends State<IfoodPedidos> {
         ),
       ),
     );
+  }
+
+  Row pedidoRealizado(Icon icon, String itemNome, String ) {
+    return Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    height: 200,
+                    width: 450,
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(255, 255, 255, 255),
+                      borderRadius: BorderRadius.circular(10.0),
+                      boxShadow: [
+                        BoxShadow(
+                          color: const Color.fromARGB(255, 232, 231, 231)
+                              .withOpacity(0.5),
+                          spreadRadius: 5,
+                          blurRadius: 7,
+                          offset: const Offset(0, 3),
+                        ),
+                      ],
+                      border: Border.all(
+                        color: const Color.fromARGB(255, 236, 237, 239),
+                        width: 2,
+                      ),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10.0),
+                      child: Stack(
+                        children: [
+                          const Positioned(
+                            top: 20,
+                            left: 20,
+                            child: Icon(
+                              Icons.fastfood,
+                              size: 24,
+                              color: Colors.black,
+                            ),
+                          ),
+                          const Positioned(
+                            top: 20,
+                            left: 70,
+                            child: Text(
+                              'Galut Burguer',
+                              style: TextStyle(
+                                fontSize: 16,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                            top: 75,
+                            left: 70,
+                            right: 50,
+                            child: Container(
+                              height: 1,
+                              color: Colors.grey.withOpacity(0.5),
+                            ),
+                          ),
+                          Positioned(
+                            top: 140,
+                            left: 70,
+                            right: 50,
+                            child: Container(
+                              height: 1,
+                              color: Colors.grey.withOpacity(0.5),
+                            ),
+                          ),
+                          const Positioned(
+                            top: 158,
+                            right: 335,
+                            child: Text(
+                              'Ajuda',
+                              style: TextStyle(color: Colors.red),
+                            ),
+                          ),
+                          const Positioned(
+                            top: 158,
+                            right: 60,
+                            child: Text(
+                              'Adicionar à Sacola',
+                              style: TextStyle(color: Colors.red),
+                            ),
+                          ),
+                          const Positioned(
+                            top: 20,
+                            right: 10,
+                            child: Icon(
+                              Icons.arrow_forward_ios_outlined,
+                              size: 24,
+                              color: Colors.black,
+                            ),
+                          ),
+                          const Positioned(
+                            top: 95,
+                            left: 70,
+                            child: Text(
+                              'Pedido concluído N° 2577\n1 Cheddar Burguer + Fritas',
+                              style: TextStyle(
+                                fontSize: 11,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              );
   }
 }

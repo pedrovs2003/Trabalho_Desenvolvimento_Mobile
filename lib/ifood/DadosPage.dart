@@ -33,7 +33,7 @@ class DadosPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Container(
-              height: 150,
+              height: 185,
               width: 450,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 255, 255, 255),

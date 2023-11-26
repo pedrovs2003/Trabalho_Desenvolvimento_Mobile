@@ -21,7 +21,7 @@ class IfoodHomePage extends StatelessWidget {
                     width: 150,
                   ),
                   Text(
-                    'Endereço atual do cliente',
+                    'Rua José Dias Vieira, Xangri-lá',
                     style: TextStyle(fontSize: 15),
                   ),
                   SizedBox(
@@ -37,181 +37,19 @@ class IfoodHomePage extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Container(
-                        margin: const EdgeInsets.only(
-                            right: 30, left: 30, top: 30, bottom: 10),
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(37, 110, 108, 108),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        height: 80,
-                        width: 180,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(15),
-                              child: const Text('Restaurantes'),
-                            ),
-                            const SizedBox(
-                              width: 10,
-                            ),
-                            Column(
-                              children: [
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                //Para deixar a imagem arredondada, usei o seguinte Widget:
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: Image.asset(
-                                    'assets/images/comida.jpg',
-                                    width: 40,
-                                    height: 40,
-                                    fit: BoxFit.cover,
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin: const EdgeInsets.only(
-                            right: 30, left: 30, top: 30, bottom: 10),
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(37, 110, 108, 108),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        height: 80,
-                        width: 180,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(15),
-                              child: const Text('Mercado'),
-                            ),
-                            const SizedBox(
-                              width: 25,
-                            ),
-                            Column(
-                              children: [
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                //Para deixar a imagem arredondada, usei o seguinte Widget:
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: Image.asset(
-                                    'assets/images/mercado.png',
-                                    width: 40,
-                                    height: 40,
-                                    fit: BoxFit.cover,
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
+                      componentesIniciais(
+                          'Restaurantes', 'assets/images/comida.jpg'),
+                      componentesIniciais(
+                          'Mercado', 'assets/images/mercado.png'),
                     ],
                   ),
                   Row(
                     children: [
-                      Container(
-                        margin: const EdgeInsets.only(
-                            right: 30, left: 30, top: 30, bottom: 10),
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(37, 110, 108, 108),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        height: 80,
-                        width: 180,
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Container(
-                              padding: const EdgeInsets.all(15),
-                              child: const Text('Farmácia'),
-                            ),
-                            const SizedBox(
-                              width: 25,
-                            ),
-                            Column(
-                              children: [
-                                const SizedBox(
-                                  height: 10,
-                                ),
-                                //Para deixar a imagem arredondada, usei o seguinte Widget:
-                                ClipRRect(
-                                  borderRadius: BorderRadius.circular(15),
-                                  child: Image.asset(
-                                    'assets/images/farmacia.jpg',
-                                    width: 40,
-                                    height: 40,
-                                    fit: BoxFit.cover,
-                                  ),
-                                )
-                              ],
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        margin:
-                            const EdgeInsets.only(left: 30, right: 10, top: 0),
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(37, 110, 108, 108),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        height: 80,
-                        width: 85,
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            const Text('Shopping'),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: Image.asset(
-                                'assets/images/compras.jpg',
-                                width: 35,
-                                height: 35,
-                                fit: BoxFit.cover,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        decoration: const BoxDecoration(
-                          color: Color.fromARGB(37, 110, 108, 108),
-                          borderRadius: BorderRadius.all(Radius.circular(10)),
-                        ),
-                        height: 80,
-                        width: 85,
-                        padding: const EdgeInsets.all(10),
-                        child: Column(
-                          children: [
-                            const Text('Pet Shop'),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            ClipRRect(
-                              borderRadius: BorderRadius.circular(15),
-                              child: Image.asset(
-                                'assets/images/pet.png',
-                                width: 35,
-                                height: 35,
-                                fit: BoxFit.cover,
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
+                      componentesIniciais(
+                          'Farmácia', 'assets/images/farmacia.jpg'),
+                      componentesIniciais2(
+                          'Shopping', 'assets/images/compras.jpg'),
+                      componentesIniciais2('Pet Shop', 'assets/images/pet.png'),
                     ],
                   ),
                   const SizedBox(
@@ -224,90 +62,24 @@ class IfoodHomePage extends StatelessWidget {
                         const SizedBox(
                           width: 5,
                         ),
-                        Container(
-                          height: 160,
-                          width: 360,
-                          padding: const EdgeInsets.all(5),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image.asset(
-                              'assets/images/publi0.jpg',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
+                        publi('assets/images/publi0.jpg'),
                         const SizedBox(
                           width: 5,
                         ),
-                        Container(
-                          height: 160,
-                          width: 360,
-                          padding: const EdgeInsets.all(5),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image.asset(
-                              'assets/images/publi1.jpg',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          height: 160,
-                          width: 360,
-                          padding: const EdgeInsets.all(5),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image.asset(
-                              'assets/images/publi2.jpg',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
+                        publi('assets/images/publi1.jpg'),
+                        publi('assets/images/publi2.jpg'),
                         const SizedBox(
                           width: 5,
                         ),
-                        Container(
-                          height: 160,
-                          width: 360,
-                          padding: const EdgeInsets.all(5),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image.asset(
-                              'assets/images/publi3.jpg',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
+                        publi('assets/images/publi3.jpg'),
                         const SizedBox(
                           width: 5,
                         ),
-                        Container(
-                          height: 160,
-                          width: 360,
-                          padding: const EdgeInsets.all(5),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image.asset(
-                              'assets/images/publi4.jpg',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
+                        publi('assets/images/publi4.jpg'),
                         const SizedBox(
                           width: 5,
                         ),
-                        Container(
-                          height: 160,
-                          width: 360,
-                          padding: const EdgeInsets.all(5),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(15),
-                            child: Image.asset(
-                              'assets/images/publi5.jpg',
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
+                        publi('assets/images/publi5.jpg'),
                       ],
                     ),
                   ),
@@ -376,282 +148,32 @@ class IfoodHomePage extends StatelessWidget {
                         const SizedBox(
                           width: 5,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey, width: 1),
-                              borderRadius: BorderRadius.circular(10)),
-                          height: 100,
-                          width: 120,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                ),
-                                height: 45,
-                                width: 110,
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: Image.asset(
-                                        'assets/images/cupom0.jpg')),
-                              ),
-                              const SizedBox(
-                                height: 3,
-                              ),
-                              Container(
-                                  decoration: const BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                  ),
-                                  height: 45,
-                                  width: 110,
-                                  child: const Column(
-                                    children: [
-                                      SizedBox(height: 5),
-                                      Text('Em Super\nRestaurantes',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(fontSize: 10)),
-                                    ],
-                                  )),
-                            ],
-                          ),
-                        ),
+                        cupom('assets/images/cupom0.jpg',
+                            'Em Super\nRestaurantes'),
                         const SizedBox(
                           width: 5,
                         ),
                         const SizedBox(
                           height: 35,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey, width: 1),
-                              borderRadius: BorderRadius.circular(10)),
-                          height: 100,
-                          width: 120,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                ),
-                                height: 45,
-                                width: 110,
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: Image.asset(
-                                        'assets/images/cupom1.jpg')),
-                              ),
-                              const SizedBox(
-                                height: 3,
-                              ),
-                              Container(
-                                  decoration: const BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                  ),
-                                  height: 45,
-                                  width: 110,
-                                  child: const Column(
-                                    children: [
-                                      SizedBox(height: 5),
-                                      Text('Em Restaurantes\nFamosos',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(fontSize: 10)),
-                                    ],
-                                  )),
-                            ],
-                          ),
-                        ),
+                        cupom('assets/images/cupom1.jpg',
+                            'Em Restaurantes\nFamosos'),
                         const SizedBox(
                           width: 5,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey, width: 1),
-                              borderRadius: BorderRadius.circular(10)),
-                          height: 100,
-                          width: 120,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                ),
-                                height: 45,
-                                width: 110,
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: Image.asset(
-                                        'assets/images/cupom2.jpg')),
-                              ),
-                              const SizedBox(
-                                height: 1,
-                              ),
-                              Container(
-                                  decoration: const BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                  ),
-                                  height: 45,
-                                  width: 110,
-                                  child: const Column(
-                                    children: [
-                                      SizedBox(height: 10),
-                                      Text('Em mercado',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(fontSize: 10)),
-                                    ],
-                                  )),
-                            ],
-                          ),
-                        ),
+                        cupom('assets/images/cupom2.jpg', 'Em mercado'),
                         const SizedBox(
                           width: 5,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey, width: 1),
-                              borderRadius: BorderRadius.circular(10)),
-                          height: 100,
-                          width: 120,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                ),
-                                height: 45,
-                                width: 110,
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: Image.asset(
-                                        'assets/images/cupom3.jpg')),
-                              ),
-                              const SizedBox(
-                                height: 3,
-                              ),
-                              Container(
-                                  decoration: const BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                  ),
-                                  height: 45,
-                                  width: 110,
-                                  child: const Column(
-                                    children: [
-                                      SizedBox(height: 10),
-                                      Text('Em Promoções',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(fontSize: 10)),
-                                    ],
-                                  )),
-                            ],
-                          ),
-                        ),
+                        cupom('assets/images/cupom3.jpg', 'Em Promoções'),
                         const SizedBox(
                           width: 5,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey, width: 1),
-                              borderRadius: BorderRadius.circular(10)),
-                          height: 100,
-                          width: 120,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                ),
-                                height: 45,
-                                width: 110,
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: Image.asset(
-                                        'assets/images/cupom2.jpg')),
-                              ),
-                              const SizedBox(
-                                height: 3,
-                              ),
-                              Container(
-                                  decoration: const BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                  ),
-                                  height: 45,
-                                  width: 110,
-                                  child: const Column(
-                                    children: [
-                                      SizedBox(height: 5),
-                                      Text('Em Super\nRestaurantes',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(fontSize: 10)),
-                                    ],
-                                  )),
-                            ],
-                          ),
-                        ),
+                        cupom('assets/images/cupom3.jpg', 'Nos Mais Populares'),
                         const SizedBox(
                           width: 5,
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(color: Colors.grey, width: 1),
-                              borderRadius: BorderRadius.circular(10)),
-                          height: 100,
-                          width: 120,
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Container(
-                                decoration: const BoxDecoration(
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10)),
-                                ),
-                                height: 45,
-                                width: 110,
-                                child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(15),
-                                    child: Image.asset(
-                                        'assets/images/cupom0.jpg')),
-                              ),
-                              const SizedBox(
-                                height: 3,
-                              ),
-                              Container(
-                                  decoration: const BoxDecoration(
-                                    borderRadius:
-                                        BorderRadius.all(Radius.circular(10)),
-                                  ),
-                                  height: 45,
-                                  width: 110,
-                                  child: const Column(
-                                    children: [
-                                      SizedBox(height: 5),
-                                      Text('Em Super\nRestaurantes',
-                                          textAlign: TextAlign.center,
-                                          style: TextStyle(fontSize: 10)),
-                                    ],
-                                  )),
-                            ],
-                          ),
-                        ),
+                        cupom('assets/images/cupom1.jpg', 'Em Sobremesas'),
                         const SizedBox(
                           width: 5,
                         ),
@@ -870,25 +392,6 @@ class IfoodHomePage extends StatelessWidget {
                   const SizedBox(
                     height: 20,
                   ),
-                  // SingleChildScrollView(
-                  //   scrollDirection: Axis.horizontal,
-                  //   child: Row(
-                  //     children: [
-                  //       ElevatedButton(
-                  //           onPressed: () {}, child: const Text('Botão')),
-                  //       ElevatedButton(
-                  //           onPressed: () {}, child: const Text('Botão')),
-                  //       ElevatedButton(
-                  //           onPressed: () {}, child: const Text('Botão')),
-                  //       ElevatedButton(
-                  //           onPressed: () {}, child: const Text('Botão')),
-                  //       ElevatedButton(
-                  //           onPressed: () {}, child: const Text('Botão')),
-                  //       ElevatedButton(
-                  //           onPressed: () {}, child: const Text('Botão')),
-                  //     ],
-                  //   ),
-                  // ),
                   const SizedBox(
                     height: 20,
                   ),
@@ -947,8 +450,8 @@ class IfoodHomePage extends StatelessWidget {
                     height: 13,
                   ),
 
-                  loja(context, "assets/images/loja8.png", 'Noodle Chinese food',
-                      '4,7', 'Japones', '1,0 km'),
+                  loja(context, "assets/images/loja8.png",
+                      'Noodle Chinese food', '4,7', 'Japones', '1,0 km'),
                   const SizedBox(
                     height: 13,
                   ),
@@ -959,17 +462,16 @@ class IfoodHomePage extends StatelessWidget {
                     height: 13,
                   ),
                   //
-                  loja(context, "assets/images/loja10.png", 'Pizza Hut',
-                      '4,3', 'Pizza', '10,1 km'),
+                  loja(context, "assets/images/loja10.png", 'Pizza Hut', '4,3',
+                      'Pizza', '10,1 km'),
 
-                 SizedBox(
-                  height: 100,
-                 )
+                  const SizedBox(
+                    height: 100,
+                  )
                 ],
               ),
             ],
           ),
-          
           Column(
             children: [
               Expanded(
@@ -1035,22 +537,150 @@ class IfoodHomePage extends StatelessWidget {
         ],
       ),
       drawer: Drawer(
-          child: IfoodConteudoDrawer(),
-        ),
-        appBar: AppBar(
-          backgroundColor: Colors.white,
-          flexibleSpace: Center(
-            child: Container(
-              alignment: Alignment.center,
-              child: Image.asset(
-                'assets/images/logo.png',
-                height: 100, // Defina a altura desejada
-                width: 100, // Defina a largura desejada
-              ),
+        child: IfoodConteudoDrawer(),
+      ),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        flexibleSpace: Center(
+          child: Container(
+            alignment: Alignment.center,
+            child: Image.asset(
+              'assets/images/logo.png',
+              height: 100, // Defina a altura desejada
+              width: 100, // Defina a largura desejada
             ),
           ),
-          centerTitle: true,
         ),
+        centerTitle: true,
+      ),
+    );
+  }
+
+  Container cupom(String imagem, String texto) {
+    return Container(
+      decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey, width: 1),
+          borderRadius: BorderRadius.circular(10)),
+      height: 100,
+      width: 120,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          Container(
+            decoration: const BoxDecoration(
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            height: 45,
+            width: 110,
+            child: ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.asset(imagem)),
+          ),
+          const SizedBox(
+            height: 3,
+          ),
+          Container(
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(Radius.circular(10)),
+              ),
+              height: 45,
+              width: 110,
+              child: Column(
+                children: [
+                  const SizedBox(height: 5),
+                  Text(texto,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(fontSize: 10)),
+                ],
+              )),
+        ],
+      ),
+    );
+  }
+
+  Container publi(String imagem) {
+    return Container(
+      height: 160,
+      width: 360,
+      padding: const EdgeInsets.all(5),
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(15),
+        child: Image.asset(
+          imagem,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
+  Container componentesIniciais2(String categoria, String imagem) {
+    return Container(
+      margin: const EdgeInsets.only(left: 30, right: 10, top: 0),
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(37, 110, 108, 108),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      height: 80,
+      width: 85,
+      padding: const EdgeInsets.all(10),
+      child: Column(
+        children: [
+          Text(categoria),
+          const SizedBox(
+            height: 5,
+          ),
+          ClipRRect(
+            borderRadius: BorderRadius.circular(15),
+            child: Image.asset(
+              imagem,
+              width: 35,
+              height: 35,
+              fit: BoxFit.cover,
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Container componentesIniciais(String categoria, String imagem) {
+    return Container(
+      margin: const EdgeInsets.only(right: 30, left: 30, top: 30, bottom: 10),
+      decoration: const BoxDecoration(
+        color: Color.fromARGB(37, 110, 108, 108),
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+      ),
+      height: 80,
+      width: 180,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            padding: const EdgeInsets.all(15),
+            child: Text(categoria),
+          ),
+          const SizedBox(
+            width: 10,
+          ),
+          Column(
+            children: [
+              const SizedBox(
+                height: 10,
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(15),
+                child: Image.asset(
+                  imagem,
+                  width: 40,
+                  height: 40,
+                  fit: BoxFit.cover,
+                ),
+              )
+            ],
+          )
+        ],
+      ),
     );
   }
 
@@ -1104,7 +734,7 @@ class IfoodHomePage extends StatelessWidget {
                   top: 25,
                   child: Text(
                     nomeLoja,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -1121,53 +751,29 @@ class IfoodHomePage extends StatelessWidget {
                   top: 48,
                   child: Text(
                     clssificacao,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontWeight: FontWeight.bold,
                       color: Colors.yellow,
                       fontSize: 12.0,
                     ),
                   ),
                 ),
-                // //Pontinho
-                // Positioned(
-                //     left: 120,
-                //     top: 54,
-                //     child: Container(
-                //       height: 5,
-                //       width: 5,
-                //       decoration: BoxDecoration(
-                //         shape: BoxShape.circle,
-                //         color: Color.fromARGB(86, 125, 118, 118),
-                //       ),
-                //     )),
-                //Categoria da loja
+
                 Positioned(
                   left: 135,
                   top: 45,
                   child: Text(
                     categoria,
-                    style: TextStyle(),
+                    style: const TextStyle(),
                   ),
                 ),
-                // //Pontinho
-                // Positioned(
-                //     left: 236,
-                //     top: 54,
-                //     child: Container(
-                //       height: 5,
-                //       width: 5,
-                //       decoration: BoxDecoration(
-                //         shape: BoxShape.circle,
-                //         color: Color.fromARGB(86, 125, 118, 118),
-                //       ),
-                //     )),
-                //Distancia
+
                 Positioned(
-                  left: 250,
+                  left: 225,
                   top: 46,
                   child: Text(
                     distancia,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 12.0,
                     ),
                   ),
@@ -1181,9 +787,9 @@ class IfoodHomePage extends StatelessWidget {
                     size: 20,
                   ),
                 ),
-                // Linha quase transparente abaixo do texto
+                // Linha transparente abaixo do texto
                 Positioned(
-                  top: 100, // Ajuste conforme necessário
+                  top: 100, 
                   left: 70,
                   right: 50,
                   child: Container(
@@ -1201,11 +807,11 @@ class IfoodHomePage extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => IfoodInserirPedido()),
+                            builder: (context) => const IfoodInserirPedido()),
                       );
                     },
                     style: ElevatedButton.styleFrom(),
-                    child: Text(
+                    child: const Text(
                       'Acessar Loja',
                       style: TextStyle(fontSize: 11),
                     ),

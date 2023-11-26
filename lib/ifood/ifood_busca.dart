@@ -61,28 +61,28 @@ class IfoodBusca extends StatelessWidget {
                   child: const Text(
                     'Categorias',
                     style: TextStyle(
-                      fontSize: 25.0, // Ajusta o tamanho da fonte
+                      fontSize: 25.0,
                       fontWeight:
-                          FontWeight.bold, // Adiciona negrito se desejar
+                          FontWeight.bold, 
                     ),
                   ),
                 ),
                 categoria(context, 'assets/images/bebidas.png',
                     'assets/images/mercado.png'),
-                categoria(context, "assets/images/flutter.png",
-                    "assets/images/flutter.png"),
-                categoria(context, "assets/images/flutter.png",
-                    "assets/images/flutter.png"),
-                categoria(context, "assets/images/flutter.png",
-                    "assets/images/flutter.png"),
-                categoria(context, "assets/images/flutter.png",
-                    "assets/images/flutter.png"),
-                categoria(context, "assets/images/flutter.png",
-                    "assets/images/flutter.png"),
-                categoria(context, "assets/images/flutter.png",
-                    "assets/images/flutter.png"),
-                categoria(context, "assets/images/flutter.png",
-                    "assets/images/flutter.png"),
+                categoria(context, "assets/images/pet.jpg",
+                    "assets/images/shopping.jpg"),
+                categoria(context, "assets/images/restauranteSuper.jpg",
+                    "assets/images/gourmet.jpg"),
+                categoria(context, "assets/images/pizza.jpg",
+                    "assets/images/lanches.jpg"),
+                categoria(context, "assets/images/japonesa.jpg",
+                    "assets/images/brasileira.jpg"),
+                categoria(context, "assets/images/chinesa.jpg",
+                    "assets/images/saudavel.jpg"),
+                categoria(context, "assets/images/crepesEpanquecas.jpg",
+                    "assets/images/arabe.jpg"),
+                categoria(context, "assets/images/tapioca.jpg",
+                    "assets/images/sorvetes.jpg"),
                 const SizedBox(
                   height: 80,
                 )
@@ -155,8 +155,8 @@ class IfoodBusca extends StatelessWidget {
               alignment: Alignment.center,
               child: Image.asset(
                 'assets/images/logo.png',
-                height: 100, // Defina a altura desejada
-                width: 100, // Defina a largura desejada
+                height: 100,
+                width: 100,
               ),
             ),
           ),
@@ -165,22 +165,6 @@ class IfoodBusca extends StatelessWidget {
       ),
     );
   }
-
-  //   'Bebidas',
-  //   'Mercado',
-  //   'Farmácia',
-  //   'Pet',
-  //   "Shopping",
-  //   "Restaurante Super",
-  //   "Gourmet",
-  //   "Pizza",
-  //   "Lanches",
-  //   "Japonesa",
-  //   "Brasileira",
-  //   "Chinesa",
-  //   "Saudável",
-  //   "Crepes e Panquecas",
-
   Row categoria(BuildContext context, String imagem1, String imagem2) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -202,7 +186,7 @@ class IfoodBusca extends StatelessWidget {
                 ),
               ),
             ),
-            Container(
+            const SizedBox(
               height: 15,
               width: 15,
             ),
@@ -223,7 +207,7 @@ class IfoodBusca extends StatelessWidget {
             ),
           ],
         ),
-        Container(
+        const SizedBox(
           height: 115,
           width: 15,
         ),
