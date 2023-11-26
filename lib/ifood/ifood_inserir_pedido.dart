@@ -84,10 +84,11 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                   ),
                 ),
               ),
+
               const SeparaRetangulo(),
 
               itemPedido(
-                'Açai',
+                'Açaí',
                 'Tigela generosa com açaí, frutas frescas e irresistíveis \ncomplementos saudáveis.',
                 Positioned(
                   top: 158,
@@ -163,13 +164,13 @@ class _InserirPedidoState extends State<IfoodInserirPedido> {
                         String meuPedido = 'Meu Pedido: \n';
                         double preco = 0;
                         if (_quantidadesAcai > 0) {
-                          meuPedido += "Açaí Turbinado - ${_quantidadesAcai}x";
+                          meuPedido += "Açaí - ${_quantidadesAcai}x";
                           preco += _quantidadesAcai * 5;
                         }
 
                         if (_quantidadesPizzas > 0) {
                           meuPedido +=
-                              "\nPizza do Fabão - ${_quantidadesPizzas}x";
+                              "\nPizza - ${_quantidadesPizzas}x";
                           preco += _quantidadesPizzas * 23.90;
                         }
 

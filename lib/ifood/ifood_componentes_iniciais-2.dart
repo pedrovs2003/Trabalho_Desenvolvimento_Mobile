@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-Container componentesIniciais2(String categoria, String imagem) {
+Container componentesIniciais2(
+    String categoria, String imagem, double direita, double esquerda) {
   return Container(
-    margin: const EdgeInsets.only(left: 30, right: 10, top: 0),
+    margin: EdgeInsets.only(left: esquerda, right: direita, top: 20),
     decoration: const BoxDecoration(
       color: Color.fromARGB(37, 110, 108, 108),
       borderRadius: BorderRadius.all(Radius.circular(10)),

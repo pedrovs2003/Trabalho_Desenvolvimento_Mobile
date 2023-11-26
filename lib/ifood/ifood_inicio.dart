@@ -32,7 +32,7 @@ class IfoodHomePage extends StatelessWidget {
                     style: TextStyle(fontSize: 15),
                   ),
                   SizedBox(
-                    width: 120,
+                    width: 80,
                   ),
                   Icon(
                     Icons.ring_volume,
@@ -55,8 +55,9 @@ class IfoodHomePage extends StatelessWidget {
                       componentesIniciais(
                           'Farmácia', 'assets/images/farmacia.jpg'),
                       componentesIniciais2(
-                          'Shopping', 'assets/images/compras.jpg'),
-                      componentesIniciais2('Pet Shop', 'assets/images/pet.png'),
+                          'Shopping', 'assets/images/compras.jpg', 12, 30),
+                      componentesIniciais2(
+                          'Pet Shop', 'assets/images/pet.png', 5, 0),
                     ],
                   ),
                   const SizedBox(
@@ -503,10 +504,4 @@ class IfoodHomePage extends StatelessWidget {
       ),
     );
   }
-
-  
-
- 
-
-  
- }
+}
